@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚫 Threat Blocked</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: #f8f9fa;
+            margin: 0;
+        }
+        h1 {
+            color: #dc3545;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            color: #6c757d;
+            margin: 20px 0;
+        }
+        .url-box {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            word-break: break-all;
+            font-family: monospace;
+            margin: 20px 0;
+        }
+        .reason {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .close-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 30px;
+        }
+        .close-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚫 Threat Blocked</h1>
+    <p>The following URL has been blocked for your safety:</p>
+    <div class="url-box" id="blockedUrl">URL will be shown here</div>
+    <p class="reason" id="blockReason">Reason: Unknown</p>
+    <button class="close-btn" onclick="window.close()">Close This Tab</button>
+    
+    <script>
+        // Get URL and reason from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const url = urlParams.get('url');
+        const reason = urlParams.get('reason');
+        
+        if (url) {
+            document.getElementById('blockedUrl').textContent = url;
+        }
+        if (reason) {
+            document.getElementById('blockReason').textContent = 'Reason: ' + reason;
+        }
+    </script>
+</body>
+</html>

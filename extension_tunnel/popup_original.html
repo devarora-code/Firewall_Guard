@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firewall Guard</title>
+    <link rel="stylesheet" href="popup_original.css">
+</head>
+<body>
+    <h1>Firewall Guard Tunnel</h1>
+
+    <div class="status-box">
+        <div class="status-item">
+            <span class="status-label">Page Status</span>
+            <span class="page-status" id="pageStatus">Checking...</span>
+        </div>
+        <div class="status-item">
+            <span class="status-label">Server Status</span>
+            <span class="status-value" id="serverStatus">Checking...</span>
+        </div>
+        <div class="status-item">
+            <span class="status-label">Endpoint Mode</span>
+            <span class="status-value" id="endpointMode">Checking...</span>
+        </div>
+        <div class="status-item">
+            <span class="status-label">Local Engine</span>
+            <span class="status-value ok" id="localEngine">Running</span>
+        </div>
+        <div class="status-item">
+            <span class="status-label">Rules Version</span>
+            <span class="status-value" id="rulesVersion">v1.0</span>
+        </div>
+        <div class="status-item">
+            <span class="status-label">Auto-Update</span>
+            <span class="status-value ok" id="autoUpdate">Enabled</span>
+        </div>
+        <div class="status-item">
+            <span class="status-label">Session ID</span>
+            <span class="status-value" id="sessionId">None</span>
+            <button id="refreshSessionBtn" class="refresh-btn">Refresh</button>
+        </div>
+    </div>
+
+    <div class="rules-box">
+        <div class="rules-header-row">
+            <span class="rules-title">Rule Visibility</span>
+            <button id="refreshRulesBtn" class="refresh-btn">Refresh</button>
+        </div>
+
+        <div class="rules-grid">
+            <div class="rule-card">
+                <div class="rule-card-title">Global Firewall Rules</div>
+                <div class="rule-row">
+                    <span class="rule-label">Version</span>
+                    <span class="rule-value" id="globalRulesVersion">Unknown</span>
+                </div>
+                <div class="rule-row">
+                    <span class="rule-label">Blocked Domains</span>
+                    <span class="rule-value" id="globalBlockedCount">0</span>
+                </div>
+                <div class="rule-row">
+                    <span class="rule-label">Last Change</span>
+                    <span class="rule-value" id="globalRulesChange">No changes yet</span>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-card-title">Local Firewall Rules</div>
+                <div class="rule-row">
+                    <span class="rule-label">Engine Status</span>
+                    <span class="rule-value" id="localEngineRulesStatus">Checking...</span>
+                </div>
+                <div class="rule-row">
+                    <span class="rule-label">Policy Rules</span>
+                    <span class="rule-value" id="localPolicyRuleCount">0</span>
+                </div>
+                <div class="rule-row">
+                    <span class="rule-label">Last Change</span>
+                    <span class="rule-value" id="localRulesChange">No changes yet</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="rule-history-card">
+            <div class="rule-card-title">Recent Rule Changes</div>
+            <div id="ruleChangeHistory" class="rule-history-list">
+                <div class="empty-history">No rule changes recorded yet.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="automation-box">
+        <div class="automation-title">Automated Browser Control</div>
+
+        <div class="automation-row">
+            <span class="automation-label" id="automationPrimaryLabel">Automated Browser Actions</span>
+            <div class="automation-actions">
+                <button id="launchBrowserBtn" class="automation-btn">Launch Browser</button>
+                <button id="getSessionsBtn" class="automation-btn secondary-btn">Get Sessions</button>
+            </div>
+        </div>
+
+        <div class="automation-row" id="automationSessionRow">
+            <span class="automation-label">Current Session</span>
+            <span class="automation-session-value" id="automationCurrentSession">No active session</span>
+        </div>
+
+        <div class="automation-options">
+            <div class="automation-options-title">Visible Browser Options</div>
+            <label class="option-checkbox">
+                <input type="checkbox" id="incognitoMode">
+                <span>Incognito Mode</span>
+            </label>
+            <label class="option-checkbox">
+                <input type="checkbox" id="blockAdsMode" checked>
+                <span>Block Ads</span>
+            </label>
+            <label class="option-checkbox">
+                <input type="checkbox" id="disableCssMode">
+                <span>Disable CSS</span>
+            </label>
+            <label class="option-checkbox">
+                <input type="checkbox" id="interceptClicksMode">
+                <span>Intercept Clicks</span>
+            </label>
+            <label class="option-checkbox">
+                <input type="checkbox" id="interceptFormsMode">
+                <span>Intercept Forms</span>
+            </label>
+        </div>
+
+        <div class="automation-helper-note" id="automationHelperNote">
+            Launch Browser opens a visible extension-controlled browser. Use the search engine section below to launch the local search app from the search folder.
+        </div>
+    </div>
+
+    <div class="local-runner-box">
+        <div class="local-runner-title">Search Engine</div>
+        <div class="local-runner-description">
+            Launch the local search app from the <code>search</code> folder. It opens in a normal browser tab and handles search plus page fetching there.
+        </div>
+
+        <div class="local-runner-actions">
+            <button id="launchSearchEngineBtn" class="automation-btn">Launch Search Engine</button>
+            <button id="refreshSearchEngineBtn" class="automation-btn secondary-btn">Refresh Status</button>
+        </div>
+
+        <div class="local-runner-status-grid">
+            <div class="rule-row">
+                <span class="rule-label">Search Status</span>
+                <span class="rule-value" id="searchEngineStatus">Checking...</span>
+            </div>
+            <div class="rule-row">
+                <span class="rule-label">Search URL</span>
+                <span class="rule-value" id="searchEngineUrl">http://localhost:4000</span>
+            </div>
+            <div class="rule-row">
+                <span class="rule-label">Source</span>
+                <span class="rule-value" id="searchEngineSource">search/search.py</span>
+            </div>
+        </div>
+
+        <div id="searchEnginePreview" class="local-runner-preview">Run <code>python search/search.py</code>, then click Launch Search Engine.</div>
+    </div>
+
+    <div class="button-group">
+        <button id="testConnectionBtn">Test Connection</button>
+        <button id="dashboardBtn">Dashboard</button>
+        <button id="updateBtn">Update</button>
+        <button id="consoleCommandsBtn">Console Commands</button>
+        <button id="aiTestingPanelBtn">AI Testing Panel</button>
+        <button id="forceSessionBtn" class="force-session-btn">Force Session</button>
+        <button id="clearSessionBtn" class="clear-session-btn">Clear Session</button>
+    </div>
+
+    <script src="popup_init.js"></script>
+    <script src="popup_original.js"></script>
+</body>
+</html>

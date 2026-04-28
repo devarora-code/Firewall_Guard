@@ -1,0 +1,84 @@
+{
+  "manifest_version": 3,
+  "name": "Firewall Guard Tunnel",
+  "version": "2.1.2",
+  "description": "Advanced firewall configured from runtime Dev Tunnel endpoints",
+  "permissions": [
+    "downloads",
+    "tabs",
+    "webNavigation",
+    "webRequest",
+    "notifications",
+    "contextMenus",
+    "storage",
+    "debugger",
+    "scripting",
+    "activeTab",
+    "windows",
+    "background",
+    "nativeMessaging"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["automation_script.js"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["browser_control.html", "browser_control.js"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["ai_testing_panel_fixed.html", "ai_testing_panel.js"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["console_popup.html", "console_popup.js"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["popup_original.html", "popup_original.js", "popup_original.css"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "http://localhost/*",
+    "https://localhost/*",
+    "http://127.0.0.1/*",
+    "https://127.0.0.1/*",
+    "https://*.devtunnels.ms/*",
+    "https://global.rel.tunnels.api.visualstudio.com/*",
+    "https://*.tunnels.api.visualstudio.com/*",
+    "https://api.openai.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["console_bridge_main.js"],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": false
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["console_bridge.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup_original.html",
+    "default_title": "Firewall Guard"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' http://localhost:7000 http://localhost:6000 http://127.0.0.1:7000 http://127.0.0.1:6000 http://localhost:* https://localhost:* http://127.0.0.1:* https://127.0.0.1:* https://*.devtunnels.ms https://global.rel.tunnels.api.visualstudio.com https://*.tunnels.api.visualstudio.com https://api.openai.com http: https:"
+  }
+}

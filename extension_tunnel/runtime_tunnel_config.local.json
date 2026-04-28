@@ -1,0 +1,10 @@
+﻿{
+    "advancedBackendBase":  "https://cdkvj82q-3100.inc1.devtunnels.ms/",
+    "backendBase":  "https://cdkvj82q-5000.inc1.devtunnels.ms/",
+    "backendApiBase":  "https://cdkvj82q-5000.inc1.devtunnels.ms/api",
+    "localEngineBase":  "http://localhost:7000/",
+    "localEngineApiBase":  "http://localhost:7000/api",
+    "extensionServerBase":  "https://cdkvj82q-6000.inc1.devtunnels.ms/",
+    "tunnelId":  "firewall-guard.inc1",
+    "updatedAt":  "2026-04-18T10:12:52.9321031+05:30"
+}

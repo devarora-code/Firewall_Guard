@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Testing Panel - Fixed</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .header { background: #007bff; color: white; padding: 20px; border-radius: 8px 8px 0; margin-bottom: 20px; }
+        .status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        .status-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .status-title { font-size: 14px; font-weight: bold; color: #333; margin-bottom: 10px; }
+        .status-value { font-size: 18px; font-weight: bold; color: #007bff; }
+        .controls { margin-bottom: 20px; }
+        .button { padding: 10px 15px; margin: 5px; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; }
+        .btn-primary { background: #007bff; color: white; }
+        .btn-secondary { background: #6c757d; color: white; }
+        .btn-danger { background: #dc3545; color: white; }
+        .commands { background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .commands-header { display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #dee2e6; }
+        .commands-list { max-height: 400px; overflow-y: auto; }
+        .command { padding: 15px; border-bottom: 1px solid #dee2e6; }
+        .command:last-child { border-bottom: none; }
+        .command-type { font-weight: bold; text-transform: uppercase; font-size: 12px; color: #6c757d; }
+        .command-content { font-family: monospace; margin-top: 5px; }
+        .command-time { font-size: 11px; color: #6c757d; }
+        .risk-badge { padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; }
+        .risk-low { background: #d4edda; color: #155724; }
+        .risk-medium { background: #fff3cd; color: #856404; }
+        .risk-high { background: #f8d7da; color: #721c24; }
+        .risk-unknown { background: #e2e3f2; color: #6c757d; }
+        .empty { text-align: center; padding: 40px; color: #6c757d; }
+        .debug { background: #f8f9fa; padding: 15px; border-radius: 4px; font-family: monospace; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI Testing Panel - Fixed</h1>
+            <p>Fixed version that definitely reads from storage</p>
+        </div>
+        
+        <div class="status-grid">
+            <div class="status-card">
+                <div class="status-title">📊 Storage Status</div>
+                <div class="status-value" id="storageStatus">Checking...</div>
+            </div>
+            <div class="status-card">
+                <div class="status-title">📋 Commands Count</div>
+                <div class="status-value" id="commandsCount">0</div>
+            </div>
+            <div class="status-card">
+                <div class="status-title">🔧 Extension Status</div>
+                <div class="status-value" id="extensionStatus">Checking...</div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="button btn-primary" onclick="refreshCommands()">🔄 Refresh</button>
+            <button class="button btn-secondary" onclick="testStorage()">Test Storage</button>
+            <button class="button btn-danger" onclick="clearCommands()">🗑️ Clear</button>
+        </div>
+        
+        <div class="commands">
+            <div class="commands-header">
+                <h3>📋 Recent Commands</h3>
+                <div id="commandStats" style="font-size: 12px; color: #6c757d;">
+                    Total: <span id="totalCommands">0</span> | 
+                    Low: <span id="lowCommands">0</span> | 
+                    Medium: <span id="mediumCommands">0</span> | 
+                    High: <span id="highCommands">0</span> | 
+                    Unknown: <span id="unknownCommands">0</span>
+                </div>
+            </div>
+            <div class="commands-list" id="commandsList">
+                <div class="empty">Loading commands...</div>
+            </div>
+        </div>
+        
+        <div class="debug">
+            <h3>🐛 Debug Info</h3>
+            <div>Chrome Extension Available: <span id="chromeExtension">Checking...</span></div>
+            <div>Chrome Storage Available: <span id="chromeStorage">Checking...</span></div>
+            <div>Last Storage Read: <span id="lastRead">Never</span></div>
+            <div id="debugLog" style="margin-top: 10px; font-family: monospace; font-size: 11px;"></div>
+        </div>
+    </div>
+    
+    <script>
+        let commands = [];
+        let lastReadTime = null;
+        
+        function updateDebugInfo() {
+            document.getElementById('chromeExtension').textContent = chrome.runtime ? '✅ Available' : '❌ Not Available';
+            document.getElementById('chromeStorage').textContent = chrome.storage && chrome.storage.local ? '✅ Available' : '❌ Not Available';
+            document.getElementById('lastRead').textContent = lastReadTime ? new Date(lastReadTime).toLocaleString() : 'Never';
+        }
+        
+        function loadCommands() {
+            console.log('[AI PANEL] Loading commands from storage...');
+            
+            if (chrome.storage && chrome.storage.local) {
+                chrome.storage.local.get(['ai_commands'], (result) => {
+                    if (chrome.runtime.lastError) {
+                        console.error('[AI PANEL] Storage read error:', chrome.runtime.lastError);
+                        showError('Storage read error: ' + chrome.runtime.lastError.message);
+                        return;
+                    }
+                    
+                    commands = result.ai_commands || [];
+                    console.log('[AI PANEL] Loaded commands:', commands.length);
+                    
+                    lastReadTime = new Date().toISOString();
+                    updateDisplay();
+                    updateDebugInfo();
+                });
+            } else {
+                showError('Chrome storage not available');
+            }
+        }
+        
+        function updateDisplay() {
+            // Update status
+            document.getElementById('storageStatus').textContent = `Found ${commands.length} commands`;
+            document.getElementById('commandsCount').textContent = commands.length;
+            document.getElementById('extensionStatus').textContent = chrome.runtime ? 'Connected' : 'Not Connected';
+            
+            // Update stats
+            const stats = { LOW: 0, MEDIUM: 0, HIGH: 0, UNKNOWN: 0 };
+            commands.forEach(cmd => {
+                const risk = cmd.riskLevel ? cmd.riskLevel.toUpperCase() : 'UNKNOWN';
+                stats[risk] = (stats[risk] || 0) + 1;
+            });
+            
+            document.getElementById('totalCommands').textContent = commands.length;
+            document.getElementById('lowCommands').textContent = stats.LOW;
+            document.getElementById('mediumCommands').textContent = stats.MEDIUM;
+            document.getElementById('highCommands').textContent = stats.HIGH;
+            document.getElementById('unknownCommands').textContent = stats.UNKNOWN;
+            
+            // Update commands list
+            const commandsList = document.getElementById('commandsList');
+            
+            if (commands.length === 0) {
+                commandsList.innerHTML = '<div class="empty">No commands yet...</div>';
+            } else {
+                commandsList.innerHTML = commands.slice(-10).reverse().map(cmd => {
+                    const riskClass = 'risk-' + (cmd.riskLevel ? cmd.riskLevel.toLowerCase() : 'unknown');
+                    return `
+                        <div class="command">
+                            <div class="command-type">${cmd.type || 'LOG'}</div>
+                            <div class="command-content">${cmd.command}</div>
+                            <div class="command-time">${new Date(cmd.timestamp).toLocaleString()}</div>
+                            <div class="command-type">
+                                <span class="risk-badge ${riskClass}">${cmd.riskLevel || 'UNKNOWN'}</span>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+        
+        function showError(message) {
+            document.getElementById('debugLog').innerHTML = `<div style="color: #dc3545;">❌ ${message}</div>`;
+        }
+        
+        function showSuccess(message) {
+            document.getElementById('debugLog').innerHTML = `<div style="color: #28a745;">✅ ${message}</div>`;
+        }
+        
+        function refreshCommands() {
+            console.log('[AI PANEL] Manual refresh triggered');
+            showSuccess('Commands refreshed');
+            loadCommands();
+        }
+        
+        function testStorage() {
+            console.log('[AI PANEL] Testing storage...');
+            
+            const testCommand = {
+                id: Date.now(),
+                timestamp: new Date().toISOString(),
+                command: 'AI_PANEL_TEST_COMMAND: Added from fixed AI panel',
+                type: 'log',
+                analysis: 'Test command from AI panel',
+                riskLevel: 'LOW',
+                source: 'ai_panel_fixed',
+                domain: window.location.hostname,
+                url: window.location.href,
+                blocked: false,
+                fallback: false
+            };
+            
+            if (chrome.storage && chrome.storage.local) {
+                chrome.storage.local.get(['ai_commands'], (result) => {
+                    const commands = result.ai_commands || [];
+                    commands.push(testCommand);
+                    
+                    chrome.storage.local.set({ 'ai_commands': commands }, () => {
+                        console.log('[AI PANEL] Test command added');
+                        showSuccess('Test command added successfully');
+                        loadCommands();
+                    });
+                });
+            } else {
+                showError('Chrome storage not available for test');
+            }
+        }
+        
+        function clearCommands() {
+            if (confirm('Are you sure you want to clear all commands?')) {
+                if (chrome.storage && chrome.storage.local) {
+                    chrome.storage.local.set({ 'ai_commands': [] }, () => {
+                        console.log('[AI PANEL] Commands cleared');
+                        showSuccess('Commands cleared successfully');
+                        loadCommands();
+                    });
+                } else {
+                    showError('Chrome storage not available for clear');
+                }
+            }
+        }
+        
+        // Listen for storage changes
+        if (chrome.storage && chrome.storage.onChanged) {
+            chrome.storage.onChanged.addListener((changes, namespace) => {
+                if (namespace === 'local' && changes.ai_commands) {
+                    console.log('[AI PANEL] Storage changed, reloading...');
+                    loadCommands();
+                }
+            });
+        }
+        
+        // Initialize
+        updateDebugInfo();
+        loadCommands();
+        
+        // Auto-refresh every 3 seconds
+        setInterval(loadCommands, 3000);
+    </script>
+</body>
+</html>
