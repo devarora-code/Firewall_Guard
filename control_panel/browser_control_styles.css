@@ -1,0 +1,116 @@
+/* Browser Control Styles */
+.button {
+    margin: 2px;
+    padding: 8px 12px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.control-btn {
+    margin-top: 10px;
+}
+
+.test-tab-btn {
+    margin-top: 10px;
+    background: #17a2b8;
+}
+
+.direct-nav-btn {
+    margin-top: 10px;
+    background: #ff6b6b;
+}
+
+.simple-test-btn {
+    margin-top: 10px;
+    background: #e74c3c;
+}
+
+.toggle-control-btn {
+    margin-top: 10px;
+    background: #6f42c1;
+}
+
+.clear-logs {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.status-item {
+    margin: 8px 0;
+    padding: 8px;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.filter-controls {
+    margin: 10px 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.logs-container {
+    margin: 20px 0;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.logs-header h3 {
+    margin: 0;
+    color: #333;
+}
+
+#logFilter {
+    padding: 6px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+}
+
+.session-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #e9ecef;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+#sessionId {
+    font-weight: bold;
+    color: #667eea;
+}
+
+#browserStatus {
+    font-weight: bold;
+    color: #28a745;
+}
+
+#refreshSessionBtn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 2px 8px;
+    font-size: 12px;
+    border-radius: 3px;
+    cursor: pointer;
+}
