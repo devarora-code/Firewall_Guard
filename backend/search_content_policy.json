@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "updated_at": "2026-04-15T13:30:31.330819",
+  "blocked_content_patterns": [
+    {
+      "id": "captcha-challenge",
+      "pattern": "captcha",
+      "reason": "Challenge page content should be blocked from search results.",
+      "enabled": true
+    },
+    {
+      "id": "access-denied",
+      "pattern": "access denied",
+      "reason": "Access denied pages should be blocked from search content.",
+      "enabled": true
+    },
+    {
+      "id": "forbidden-403",
+      "pattern": "403 forbidden",
+      "reason": "Forbidden content should be blocked from search content.",
+      "enabled": true
+    }
+  ],
+  "delayed_content_patterns": [
+    {
+      "id": "just-a-moment",
+      "pattern": "just a moment",
+      "reason": "Interstitial challenge pages should incur a small verification delay.",
+      "enabled": true,
+      "delay_ms": 2000
+    },
+    {
+      "id": "checking-your-browser",
+      "pattern": "checking your browser",
+      "reason": "Browser verification pages should incur a small verification delay.",
+      "enabled": true,
+      "delay_ms": 2000
+    },
+    {
+      "id": "please-wait",
+      "pattern": "please wait",
+      "reason": "Wait screens should incur a small verification delay.",
+      "enabled": true,
+      "delay_ms": 1500
+    }
+  ]
+}

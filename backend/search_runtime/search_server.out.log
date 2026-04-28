@@ -1,0 +1,976 @@
+ * Serving Flask app 'search'
+ * Debug mode: off
+[Search] 2026-03-29T17:22:46.922500 automatic log generation check
+[Search] 2026-03-29T17:23:09.229439 automatic log generation check after fix
+[Search] 2026-03-29T17:23:35.703456 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:23:35.703937 Starting search server on http://localhost:4000
+b''b" * Serving Flask app 'search'\r\n"b' * Debug mode: off\r\n'[Search] 2026-03-29T17:23:40.479625 GET /health -> 200 in 38ms
+[Search] 2026-03-29T17:24:15.924683 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:24:15.924990 Starting search server on http://localhost:4000
+ * Serving Flask app 'search'
+ * Debug mode: off
+[Search] 2026-03-29T17:24:21.121141 GET /health -> 200 in 39ms
+[Search] 2026-03-29T17:24:23.494893 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:24:23.512482 GET /health -> 200 in 374ms
+[Search] 2026-03-29T17:25:23.266428 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:25:23.282941 GET /health -> 200 in 383ms
+[Search] 2026-03-29T17:26:23.162189 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:26:23.178073 GET /health -> 200 in 386ms
+[Search] 2026-03-29T17:27:22.806413 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:27:22.824015 GET /health -> 200 in 350ms
+[Search] 2026-03-29T17:28:23.134525 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:28:23.151857 GET /health -> 200 in 366ms
+[Search] 2026-03-29T17:29:23.259483 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:29:23.275746 GET /health -> 200 in 374ms
+[Search] 2026-03-29T17:30:23.721603 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:30:23.738235 GET /health -> 200 in 368ms
+[Search] 2026-03-29T17:32:10.781167 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:32:10.799599 GET /health -> 200 in 391ms
+[Search] 2026-03-29T17:32:22.652775 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:32:22.661893 GET /health -> 200 in 71ms
+[Search] 2026-03-29T17:33:13.772067 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:33:13.781233 GET /health -> 200 in 145ms
+[Search] 2026-03-29T17:33:22.487937 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:33:22.497234 GET /health -> 200 in 107ms
+[Search] 2026-03-29T17:33:38.013392 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:33:38.020751 GET /health -> 200 in 170ms
+[Search] 2026-03-29T17:33:55.980534 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:33:55.988245 GET /health -> 200 in 102ms
+[Search] 2026-03-29T17:34:11.633468 GET /health -> 200 in 22ms
+[Search] 2026-03-29T17:34:23.184019 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:34:23.188622 GET /health -> 200 in 55ms
+[Search] 2026-03-29T17:34:32.043710 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:34:32.052963 GET /health -> 200 in 82ms
+[Search] 2026-03-29T17:34:51.682340 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:34:51.690572 GET /health -> 200 in 79ms
+[Search] 2026-03-29T17:35:12.057719 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:35:12.067926 GET /health -> 200 in 78ms
+[Search] 2026-03-29T17:35:22.856534 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:35:22.871960 GET /health -> 200 in 100ms
+[Search] 2026-03-29T17:35:31.710546 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:35:31.719015 GET /health -> 200 in 97ms
+[Search] 2026-03-29T17:35:52.014588 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:35:52.024643 GET /health -> 200 in 93ms
+[Search] 2026-03-29T17:36:11.989439 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:36:11.997133 GET /health -> 200 in 82ms
+[Search] 2026-03-29T17:36:22.507680 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:36:22.524602 GET /health -> 200 in 133ms
+[Search] 2026-03-29T17:36:31.709753 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:36:31.719703 GET /health -> 200 in 94ms
+[Search] 2026-03-29T17:36:51.691938 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:36:51.699424 GET /health -> 200 in 75ms
+[Search] 2026-03-29T17:37:11.745872 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:37:11.754111 GET /health -> 200 in 79ms
+[Search] 2026-03-29T17:37:23.516405 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:37:23.525631 GET /health -> 200 in 123ms
+[Search] 2026-03-29T17:37:32.466071 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:37:32.473828 GET /health -> 200 in 70ms
+[Search] 2026-03-29T17:37:52.759642 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:37:52.767150 GET /health -> 200 in 84ms
+[Search] 2026-03-29T17:38:12.800931 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:38:12.805181 GET /health -> 200 in 71ms
+[Search] 2026-03-29T17:38:22.406333 GET /health -> 200 in 18ms
+[Search] 2026-03-29T17:39:22.658540 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:39:22.666468 GET /health -> 200 in 83ms
+[Search] 2026-03-29T17:39:23.376081 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:39:23.385925 GET /health -> 200 in 72ms
+[Search] 2026-03-29T17:40:07.716899 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:40:07.726594 GET /health -> 200 in 97ms
+[Search] 2026-03-29T17:40:11.668931 GET /health -> 200 in 11ms
+[Search] 2026-03-29T17:40:22.949156 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:40:22.957409 GET /health -> 200 in 182ms
+[Search] 2026-03-29T17:40:32.032608 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:40:32.037893 GET /health -> 200 in 65ms
+[Search] 2026-03-29T17:40:51.712870 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:40:51.717112 GET /health -> 200 in 67ms
+[Search] 2026-03-29T17:41:12.095193 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:41:12.099112 GET /health -> 200 in 72ms
+[Search] 2026-03-29T17:41:22.767719 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:41:22.777028 GET /health -> 200 in 86ms
+[Search] 2026-03-29T17:41:31.780347 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:41:31.788384 GET /health -> 200 in 171ms
+[Search] 2026-03-29T17:41:51.986808 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:41:51.995688 GET /health -> 200 in 77ms
+[Search] 2026-03-29T17:42:12.036419 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:42:12.044727 GET /health -> 200 in 77ms
+[Search] 2026-03-29T17:42:22.727625 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:42:22.735273 GET /health -> 200 in 71ms
+[Search] 2026-03-29T17:42:31.980812 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:42:31.988087 GET /health -> 200 in 78ms
+[Search] 2026-03-29T17:42:52.111876 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:42:52.126609 GET /health -> 200 in 128ms
+[Search] 2026-03-29T17:43:11.737467 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:43:11.748425 GET /health -> 200 in 89ms
+[Search] 2026-03-29T17:43:22.475320 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:43:22.482500 GET /health -> 200 in 86ms
+[Search] 2026-03-29T17:43:32.062500 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:43:32.070038 GET /health -> 200 in 96ms
+[Search] 2026-03-29T17:43:51.685104 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:43:51.693625 GET /health -> 200 in 71ms
+[Search] 2026-03-29T17:44:12.044616 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:44:12.052729 GET /health -> 200 in 78ms
+[Search] 2026-03-29T17:44:22.397832 GET /health -> 200 in 14ms
+[Search] 2026-03-29T17:44:32.027228 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:44:32.037348 GET /health -> 200 in 81ms
+[Search] 2026-03-29T17:44:52.757358 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:44:52.760546 GET /health -> 200 in 48ms
+[Search] 2026-03-29T17:45:22.686752 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:45:22.690908 GET /health -> 200 in 62ms
+[Search] 2026-03-29T17:46:23.018094 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:46:23.034661 GET /health -> 200 in 404ms
+[Search] 2026-03-29T17:47:23.080309 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:47:23.096600 GET /health -> 200 in 405ms
+[Search] 2026-03-29T17:48:23.100964 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:48:23.119671 GET /health -> 200 in 408ms
+[Search] 2026-03-29T17:49:23.035402 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:49:23.051309 GET /health -> 200 in 401ms
+[Search] 2026-03-29T17:50:22.989595 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:50:23.007529 GET /health -> 200 in 401ms
+[Search] 2026-03-29T17:51:22.811147 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:51:22.820104 GET /health -> 200 in 77ms
+[Search] 2026-03-29T17:52:23.127528 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:52:23.145899 GET /health -> 200 in 393ms
+[Search] 2026-03-29T17:53:22.988900 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:53:23.004536 GET /health -> 200 in 406ms
+[Search] 2026-03-29T17:54:23.570116 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:54:23.586708 GET /health -> 200 in 398ms
+[Search] 2026-03-29T17:55:23.017184 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:55:23.033143 GET /health -> 200 in 392ms
+[Search] 2026-03-29T17:56:23.157781 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:56:23.173155 GET /health -> 200 in 391ms
+[Search] 2026-03-29T17:57:22.978599 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:57:22.995659 GET /health -> 200 in 414ms
+[Search] 2026-03-29T17:58:23.735009 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:58:23.752791 GET /health -> 200 in 397ms
+[Search] 2026-03-29T17:59:22.942674 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T17:59:22.958192 GET /health -> 200 in 360ms
+[Search] 2026-03-29T18:00:23.005061 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:00:23.022027 GET /health -> 200 in 405ms
+[Search] 2026-03-29T18:01:22.986668 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:01:23.002407 GET /health -> 200 in 389ms
+[Search] 2026-03-29T18:02:23.031206 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:02:23.047890 GET /health -> 200 in 396ms
+[Search] 2026-03-29T18:03:23.032291 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:03:23.048663 GET /health -> 200 in 388ms
+[Search] 2026-03-29T18:04:23.139981 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:04:23.154996 GET /health -> 200 in 392ms
+[Search] 2026-03-29T18:05:22.914522 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:05:22.929287 GET /health -> 200 in 443ms
+[Search] 2026-03-29T18:06:23.027584 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:06:23.043769 GET /health -> 200 in 415ms
+[Search] 2026-03-29T18:07:23.224267 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:07:23.239392 GET /health -> 200 in 395ms
+[Search] 2026-03-29T18:08:22.982113 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:08:22.998080 GET /health -> 200 in 400ms
+[Search] 2026-03-29T18:09:22.771974 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:09:22.788316 GET /health -> 200 in 372ms
+[Search] 2026-03-29T18:10:22.998069 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:10:23.015118 GET /health -> 200 in 410ms
+[Search] 2026-03-29T18:11:22.999307 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:11:23.016195 GET /health -> 200 in 387ms
+[Search] 2026-03-29T18:12:22.765857 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:12:22.771773 GET /health -> 200 in 131ms
+[Search] 2026-03-29T18:13:23.071892 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:13:23.086975 GET /health -> 200 in 398ms
+[Search] 2026-03-29T18:14:22.974419 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:14:22.990595 GET /health -> 200 in 398ms
+[Search] 2026-03-29T18:15:23.017705 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:15:23.035659 GET /health -> 200 in 411ms
+[Search] 2026-03-29T18:16:22.804350 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:16:22.811944 GET /health -> 200 in 144ms
+[Search] 2026-03-29T18:17:23.618157 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:17:23.635326 GET /health -> 200 in 416ms
+[Search] 2026-03-29T18:18:23.024609 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:18:23.040637 GET /health -> 200 in 392ms
+[Search] 2026-03-29T18:19:22.786490 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:19:22.803553 GET /health -> 200 in 395ms
+[Search] 2026-03-29T18:20:22.769996 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:20:22.785339 GET /health -> 200 in 386ms
+[Search] 2026-03-29T18:21:22.528247 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:21:22.533305 GET /health -> 200 in 125ms
+[Search] 2026-03-29T18:22:23.266567 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:22:23.273505 GET /health -> 200 in 604ms
+[Search] 2026-03-29T18:51:18.944101 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-29T18:51:18.944483 Starting search server on http://localhost:4000
+ * Serving Flask app 'search'
+ * Debug mode: off
+[Search] 2026-03-30T00:02:27.526101 Auto-generated rules file from 4 source file(s)
+[Search] 2026-03-30T00:02:27.526506 Starting search server on http://localhost:4000
+ * Serving Flask app 'search'
+ * Debug mode: off
+[Search] 2026-04-03T14:56:23.443781 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T14:56:23.445154 Starting search server on http://localhost:4000
+ * Serving Flask app 'search'
+ * Debug mode: off
+[Search] 2026-04-03T15:00:57.369904 GET /health -> 200 in 19ms
+[Search] 2026-04-03T15:09:42.155523 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T15:09:42.163147 GET /health -> 200 in 175ms
+[Search] 2026-04-03T15:10:42.144652 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T15:10:42.155817 GET /health -> 200 in 174ms
+[Search] 2026-04-03T15:10:42.757476 GET /health -> 200 in 16ms
+[Search] 2026-04-03T15:11:02.927578 GET / -> 200 in 29ms
+[Search] 2026-04-03T15:11:03.422505 GET /api/state -> 200 in 41ms
+[Search] 2026-04-03T15:11:03.515691 GET /favicon.ico -> 404 in 2ms
+[Search] 2026-04-03T15:12:25.320835 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T15:12:25.329965 GET /health -> 200 in 171ms
+[Search] 2026-04-03T15:31:18.858839 POST /api/extract-rules -> 400 in 7ms
+[Search] 2026-04-03T15:43:17.588035 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T15:43:17.594505 GET /health -> 200 in 169ms
+[Search] 2026-04-03T15:43:37.457891 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T15:43:37.464122 GET /health -> 200 in 165ms
+[Search] 2026-04-03T15:43:57.462236 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T15:43:57.469570 GET /health -> 200 in 172ms
+[Search] 2026-04-03T15:44:17.394679 GET /health -> 200 in 15ms
+[Search] 2026-04-03T15:44:34.448699 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T15:44:34.456185 GET /health -> 200 in 169ms
+[Search] 2026-04-03T15:44:35.171937 GET / -> 200 in 1ms
+[Search] 2026-04-03T15:44:35.468440 GET /api/state -> 200 in 12ms
+[Search] 2026-04-03T15:45:45.762148 Search query 'youtube' returned 29 result(s); indexed count is 30
+[Search] 2026-04-03T15:45:45.769401 GET /search -> 200 in 3810ms
+[Search] 2026-04-03T15:45:46.489986 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T15:45:46.495697 GET /api/state -> 200 in 161ms
+[Search] 2026-04-03T15:52:32.433952 GET / -> 200 in 1ms
+[Search] 2026-04-03T15:54:48.104423 GET / -> 200 in 2ms
+[Search] 2026-04-03T15:54:48.738860 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T15:54:48.856193 GET /health -> 200 in 1493ms
+[Search] 2026-04-03T15:55:23.553302 GET / -> 200 in 1ms
+[Search] 2026-04-03T15:55:24.513872 GET / -> 200 in 0ms
+[Search] 2026-04-03T15:56:45.878324 GET /health -> 200 in 273ms
+[Search] 2026-04-03T15:57:07.544553 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T15:57:07.545540 Starting search server on http://localhost:4000
+ * Serving Flask app 'search'
+ * Debug mode: off
+[Search] 2026-04-03T15:57:35.647338 GET / -> 200 in 9ms
+[Search] 2026-04-03T15:57:37.360857 GET / -> 403 in 13ms
+[Search] 2026-04-03T15:57:40.271420 GET /health -> 200 in 186ms
+[Search] 2026-04-03T15:58:08.770758 GET /api/state -> 200 in 171ms
+[Search] 2026-04-03T15:58:33.625677 Search query 'youtube' returned 40 result(s); indexed count is 46
+[Search] 2026-04-03T15:58:33.692916 GET /search -> 200 in 4281ms
+[Search] 2026-04-03T15:58:45.323277 GET / -> 200 in 0ms
+[Search] 2026-04-03T15:58:45.690769 GET /favicon.ico -> 404 in 1ms
+[Search] 2026-04-03T15:58:46.297804 GET /api/state -> 200 in 610ms
+[Search] 2026-04-03T15:58:46.732851 GET / -> 200 in 10ms
+[Search] 2026-04-03T15:58:49.923451 GET /api/state -> 200 in 475ms
+[Search] 2026-04-03T16:22:25.569476 GET /health -> 200 in 105ms
+[Search] 2026-04-03T16:22:30.768297 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T16:22:30.815448 GET /health -> 200 in 1353ms
+[Search] 2026-04-03T16:22:31.763906 GET / -> 200 in 0ms
+[Search] 2026-04-03T16:22:32.990406 GET /api/state -> 200 in 76ms
+[Search] 2026-04-03T16:22:33.413566 GET / -> 200 in 0ms
+[Search] 2026-04-03T16:22:33.817359 GET /api/state -> 200 in 80ms
+[Search] 2026-04-03T16:22:54.660668 GET /health -> 200 in 91ms
+[Search] 2026-04-03T16:32:25.217450 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T16:32:25.220470 Starting admin page on http://localhost:3800[Search] 2026-04-03T16:32:25.220499 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-03T16:33:49.305246 GET / -> 200 in 2ms
+[Search] 2026-04-03T16:33:55.335688 GET / -> 200 in 1ms
+[Search] 2026-04-03T16:33:57.572995 GET / -> 403 in 12ms
+[Search] 2026-04-03T16:34:02.314811 GET / -> 200 in 0ms
+[Search] 2026-04-03T16:34:38.417012 GET /health -> 200 in 127ms
+[Search] 2026-04-03T16:34:44.070185 GET /api/state -> 200 in 220ms
+[Search] 2026-04-03T16:34:53.246200 Search query 'youtube' returned 42 result(s); indexed count is 50
+[Search] 2026-04-03T16:34:53.339747 GET /search -> 200 in 3040ms
+[Search] 2026-04-03T16:34:54.816449 GET /api/state -> 404 in 0ms
+[Search] 2026-04-03T16:37:01.172124 GET / -> 200 in 0ms
+[Search] 2026-04-03T16:37:02.747558 GET /health -> 200 in 1399ms
+[Search] 2026-04-03T16:37:07.879145 GET / -> 200 in 0ms
+[Search] 2026-04-03T16:37:08.833051 GET /favicon.ico -> 404 in 0ms
+[Search] 2026-04-03T16:37:09.708665 GET /api/state -> 200 in 877ms
+[Search] 2026-04-03T17:03:20.799326 GET / -> 200 in 1ms
+[Search] 2026-04-03T17:03:21.050614 GET / -> 200 in 1ms
+[Search] 2026-04-03T17:03:40.111393 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T17:03:40.216439 GET /health -> 200 in 2261ms
+[Search] 2026-04-03T17:03:42.828092 GET /health -> 200 in 143ms
+[Search] 2026-04-03T17:03:43.302468 GET / -> 200 in 0ms
+[Search] 2026-04-03T17:03:44.480554 GET /health -> 200 in 145ms
+[Search] 2026-04-03T17:04:13.617538 GET / -> 200 in 0ms
+[Search] 2026-04-03T17:04:14.541213 GET /health -> 200 in 194ms
+[Search] 2026-04-03T17:04:15.773193 GET / -> 200 in 0ms
+[Search] 2026-04-03T17:04:16.061841 GET /health -> 200 in 85ms
+[Search] 2026-04-03T17:04:55.713467 GET / -> 200 in 0ms
+[Search] 2026-04-03T17:04:57.174137 GET / -> 200 in 0ms
+[Search] 2026-04-03T17:09:07.150145 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T17:09:07.153053 Starting admin page on http://localhost:3800[Search] 2026-04-03T17:09:07.153078 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-03T17:09:43.768708 GET / -> 200 in 193ms
+[Search] 2026-04-03T17:09:46.798310 GET /health -> 200 in 620ms
+[Search] 2026-04-03T17:09:48.082503 GET /health -> 200 in 533ms
+[Search] 2026-04-03T17:09:51.853126 GET / -> 200 in 3ms
+[Search] 2026-04-03T17:10:10.431149 Search query 'youtube' returned 0 result(s); indexed count is 50
+[Search] 2026-04-03T17:10:10.921917 GET /search -> 200 in 10342ms
+[Search] 2026-04-03T17:10:14.593000 GET /health -> 200 in 1313ms
+[Search] 2026-04-03T17:10:17.169222 Search query 'youtube' returned 38 result(s); indexed count is 51
+[Search] 2026-04-03T17:10:17.645488 GET /search -> 200 in 5817ms
+[Search] 2026-04-03T17:10:20.825847 GET /health -> 200 in 903ms
+[Search] 2026-04-03T17:10:25.743084 Search query 'youtube' returned 40 result(s); indexed count is 57
+[Search] 2026-04-03T17:10:26.038037 GET /search -> 200 in 6284ms
+[Search] 2026-04-03T17:10:27.585773 GET /health -> 200 in 862ms
+[Search] 2026-04-03T17:10:32.044890 Search query 'youtube' returned 38 result(s); indexed count is 58
+[Search] 2026-04-03T17:10:32.387254 GET /search -> 200 in 5815ms
+[Search] 2026-04-03T17:10:33.966727 GET /health -> 200 in 887ms
+[Search] 2026-04-03T17:11:43.876352 GET / -> 200 in 0ms
+[Search] 2026-04-03T17:11:47.686087 GET /health -> 200 in 460ms
+[Search] 2026-04-03T17:12:00.525231 Search query 'youtube' returned 40 result(s); indexed count is 60
+[Search] 2026-04-03T17:12:00.868205 GET /search -> 200 in 5763ms
+[Search] 2026-04-03T17:12:02.222242 GET /health -> 200 in 237ms
+[Search] 2026-04-03T17:12:06.084522 Search query 'youtube' returned 38 result(s); indexed count is 64
+[Search] 2026-04-03T17:12:06.219894 GET /search -> 200 in 4018ms
+[Search] 2026-04-03T17:12:07.703630 GET /health -> 200 in 991ms
+[Search] 2026-04-03T17:14:14.163931 GET /health -> 200 in 1144ms
+[Search] 2026-04-03T17:15:06.464059 GET /health -> 200 in 647ms
+[Search] 2026-04-03T17:15:09.371736 GET /health -> 200 in 813ms
+[Search] 2026-04-03T17:15:09.945777 GET /health -> 200 in 447ms
+[Search] 2026-04-03T17:18:18.927931 Fetched https://en.wikipedia.org/wiki/YouTube using requests; discovered 50 link(s)
+[Search] 2026-04-03T17:18:18.951326 GET /fetch -> 200 in 375672ms
+[Search] 2026-04-03T17:19:03.170754 GET /fetch -> 400 in 477989ms
+[Search] 2026-04-03T17:19:20.515921 GET /fetch -> 400 in 460613ms
+[Search] 2026-04-03T17:20:19.804728 GET /fetch -> 400 in 484913ms
+[Search] 2026-04-03T17:22:48.933426 GET /health -> 200 in 855ms
+[Search] 2026-04-03T17:40:16.332269 GET /health -> 200 in 1108ms
+[Search] 2026-04-03T17:40:19.904463 GET /health -> 200 in 638ms
+[Search] 2026-04-03T17:40:21.531140 GET /health -> 200 in 1230ms
+[Search] 2026-04-03T17:40:31.683140 GET /api/state -> 200 in 513ms
+[Search] 2026-04-03T17:40:34.458708 GET /api/state -> 200 in 631ms
+[Search] 2026-04-03T17:40:35.061167 GET /api/state -> 200 in 431ms
+[Search] 2026-04-03T17:51:52.919492 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T17:51:53.151223 Starting admin page on http://localhost:3800[Search] 2026-04-03T17:51:53.151346 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+ * Debug mode: off
+[Search] 2026-04-03T17:52:09.250743 GET / -> 200 in 4664ms
+[Search] 2026-04-03T17:52:37.483003 Search query 'youtube' returned 40 result(s); indexed count is 115
+[Search] 2026-04-03T17:52:37.534628 GET /search -> 200 in 15053ms
+[Search] 2026-04-03T17:52:42.187230 GET /health -> 200 in 102ms
+[Search] 2026-04-03T17:52:50.417496 Search query 'youtube' returned 40 result(s); indexed count is 116
+[Search] 2026-04-03T17:52:50.758132 GET /search -> 200 in 8758ms
+[Search] 2026-04-03T17:52:56.317226 GET /health -> 200 in 193ms
+[Search] 2026-04-03T17:53:08.296634 Search query 'youtube' returned 40 result(s); indexed count is 117
+[Search] 2026-04-03T17:53:08.452156 GET /search -> 200 in 12824ms
+[Search] 2026-04-03T17:53:08.985094 GET /health -> 200 in 29ms
+[Search] 2026-04-03T17:53:09.117519 GET /health -> 200 in 42ms
+[Search] 2026-04-03T17:53:24.770297 GET / -> 200 in 747ms
+[Search] 2026-04-03T17:54:03.374617 GET /health -> 200 in 109ms
+[Search] 2026-04-03T17:54:04.204980 GET /health -> 200 in 296ms
+[Search] 2026-04-03T17:54:04.952213 GET /health -> 200 in 84ms
+[Search] 2026-04-03T17:54:05.399522 GET / -> 200 in 51ms
+[Search] 2026-04-03T17:54:06.468176 GET /api/state -> 200 in 585ms
+[Search] 2026-04-03T17:54:07.454542 GET /api/state -> 200 in 24ms
+[Search] 2026-04-03T17:58:07.308630 GET /fetch -> 400 in 303988ms
+[Search] 2026-04-03T18:00:18.306723 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T18:00:19.152397 Starting admin page on http://localhost:3800[Search] 2026-04-03T18:00:19.152439 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+ * Debug mode: off
+[Search] 2026-04-03T18:00:32.302358 GET / -> 200 in 770ms
+[Search] 2026-04-03T18:00:36.829023 GET / -> 200 in 0ms
+[Search] 2026-04-03T18:01:01.380688 Search query 'youtube' returned 0 result(s); indexed count is 117
+[Search] 2026-04-03T18:01:01.758500 GET /search -> 200 in 18932ms
+[Search] 2026-04-03T18:01:05.273388 Search query 'youtube' returned 25 result(s); indexed count is 117[Search] 2026-04-03T18:01:05.303816 GET /health -> 200 in 188ms
+
+[Search] 2026-04-03T18:01:05.544457 GET /search -> 200 in 3568ms
+[Search] 2026-04-03T18:01:06.965204 GET /health -> 200 in 118ms
+[Search] 2026-04-03T18:01:13.839789 Search query 'youtube' returned 25 result(s); indexed count is 117
+[Search] 2026-04-03T18:01:13.951372 GET /search -> 200 in 7900ms
+[Search] 2026-04-03T18:01:15.505086 Search query 'youtube' returned 25 result(s); indexed count is 118
+[Search] 2026-04-03T18:01:15.785364 GET /search -> 200 in 9274ms
+[Search] 2026-04-03T18:01:16.951656 GET /health -> 200 in 73ms
+[Search] 2026-04-03T18:01:20.833551 GET /health -> 200 in 35ms
+[Search] 2026-04-03T18:01:39.663404 GET /health -> 200 in 378ms
+[Search] 2026-04-03T18:03:08.393336 GET /health -> 200 in 108ms
+[Search] 2026-04-03T18:03:26.556097 GET / -> 200 in 509ms
+[Search] 2026-04-03T18:03:27.557876 GET /api/state -> 200 in 211ms
+[Search] 2026-04-03T18:03:44.654621 Search query 'youtube' returned 25 result(s); indexed count is 118
+[Search] 2026-04-03T18:03:45.042776 GET /search -> 200 in 9569ms
+[Search] 2026-04-03T18:03:45.994392 GET /api/state -> 200 in 147ms
+[Search] 2026-04-03T18:03:53.225028 Search query 'youtube' returned 25 result(s); indexed count is 118
+[Search] 2026-04-03T18:03:53.236536 GET /search -> 200 in 7480ms
+[Search] 2026-04-03T18:03:53.868365 GET /api/state -> 200 in 240ms
+[Search] 2026-04-03T18:05:15.166768 Fetched https://en.wikipedia.org/wiki/YouTube using requests; discovered 30 link(s)
+[Search] 2026-04-03T18:05:15.192540 GET /fetch -> 200 in 246989ms
+[Search] 2026-04-03T18:06:52.220139 Fetched https://en.wikipedia.org/wiki/YouTube using requests; discovered 30 link(s)
+[Search] 2026-04-03T18:06:52.221592 GET /fetch -> 200 in 334624ms
+[Search] 2026-04-03T18:07:28.188271 GET /health -> 200 in 0ms
+[Search] 2026-04-03T18:07:46.998635 GET /health -> 200 in 0ms
+[Search] 2026-04-03T18:08:44.556081 Fetched https://www.youtube.com/?gl=JP&hl=ja using requests; discovered 13 link(s)
+[Search] 2026-04-03T18:08:44.613381 GET /fetch -> 200 in 276516ms
+[Search] 2026-04-03T18:08:57.233207 Fetched https://www.youtube.com/?gl=JP&hl=ja using requests; discovered 13 link(s)
+[Search] 2026-04-03T18:08:57.234875 GET /fetch -> 200 in 309897ms
+[Search] 2026-04-03T18:08:59.550364 Search query 'geeksforgeeks' returned 25 result(s); indexed count is 155
+[Search] 2026-04-03T18:08:59.610213 GET /search -> 200 in 3006ms
+[Search] 2026-04-03T18:09:12.227944 Search query 'youtube' returned 25 result(s); indexed count is 155
+[Search] 2026-04-03T18:09:12.239602 GET /search -> 200 in 3393ms
+[Search] 2026-04-03T18:10:40.342907 Fetched https://www.youtube.com/?gl=JP&hl=ja using requests; discovered 13 link(s)
+[Search] 2026-04-03T18:10:40.395791 GET /fetch -> 200 in 468879ms
+[Search] 2026-04-03T18:12:38.975531 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T18:12:39.406979 Starting admin page on http://localhost:3800[Search] 2026-04-03T18:12:39.407029 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-03T18:13:02.673964 GET /api/state -> 200 in 283ms
+[Search] 2026-04-03T18:13:02.993693 GET /api/state -> 200 in 230ms
+[Search] 2026-04-03T18:13:04.338797 GET / -> 200 in 473ms
+[Search] 2026-04-03T18:13:27.602496 GET / -> 200 in 1ms
+[Search] 2026-04-03T18:13:34.930934 GET / -> 200 in 23ms
+[Search] 2026-04-03T18:13:55.824126 Search query 'youtube' returned 25 result(s); indexed count is 155
+[Search] 2026-04-03T18:13:55.871075 GET /search -> 200 in 6804ms
+[Search] 2026-04-03T18:13:57.520740 Search query 'youtube' returned 25 result(s); indexed count is 155
+[Search] 2026-04-03T18:13:57.569315 GET /search -> 200 in 41768ms
+[Search] 2026-04-03T18:14:33.669998 GET /.well-known/appspecific/com.chrome.devtools.json -> 404 in 0ms
+[Search] 2026-04-03T18:15:25.791785 GET / -> 200 in 0ms
+[Search] 2026-04-03T18:16:07.740883 Fetched https://en.wikipedia.org/wiki/YouTube using requests; discovered 30 link(s)
+[Search] 2026-04-03T18:16:07.908326 GET /fetch -> 200 in 2512ms
+[Search] 2026-04-03T18:16:39.832734 GET / -> 200 in 0ms
+[Search] 2026-04-03T18:16:40.831191 GET /.well-known/appspecific/com.chrome.devtools.json -> 404 in 1ms
+[Search] 2026-04-03T18:16:59.056639 Search query 'youtube' returned 25 result(s); indexed count is 155
+[Search] 2026-04-03T18:16:59.519690 GET /search -> 200 in 7227ms
+[Search] 2026-04-03T18:17:25.810420 GET /fetch -> 400 in 206783ms
+[Search] 2026-04-03T18:18:10.656390 Search query 'geeksforgeeks' returned 25 result(s); indexed count is 165
+[Search] 2026-04-03T18:18:10.694513 GET /search -> 200 in 6168ms
+[Search] 2026-04-03T18:18:39.750413 GET /fetch -> 400 in 261573ms
+[Search] 2026-04-03T18:19:05.366372 GET /fetch -> 400 in 265458ms
+[Search] 2026-04-03T18:19:42.031121 GET /fetch -> 400 in 302941ms
+[Search] 2026-04-03T18:20:01.854247 GET /fetch -> 400 in 322460ms
+[Search] 2026-04-03T18:20:53.512130 GET / -> 200 in 237ms
+[Search] 2026-04-03T18:20:54.638878 GET /.well-known/appspecific/com.chrome.devtools.json -> 404 in 0ms
+[Search] 2026-04-03T18:21:10.480177 Search query 'youtube' returned 25 result(s); indexed count is 165
+[Search] 2026-04-03T18:21:10.694823 GET /search -> 200 in 9048ms
+[Search] 2026-04-03T18:24:00.304340 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T18:24:00.471417 Starting admin page on http://localhost:3800[Search] 2026-04-03T18:24:00.471521 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-03T18:24:15.517945 GET / -> 200 in 886ms
+[Search] 2026-04-03T18:24:54.108077 Search query 'youtube' returned 25 result(s) from local-index; indexed count is 165
+[Search] 2026-04-03T18:24:54.306894 GET /search -> 200 in 29875ms
+[Search] 2026-04-03T18:24:54.411744 GET / -> 200 in 0ms
+[Search] 2026-04-03T18:25:01.818863 Fetched https://about.youtube/ using requests; discovered 30 link(s)
+[Search] 2026-04-03T18:25:01.826118 GET /fetch -> 200 in 2919ms
+[Search] 2026-04-03T18:25:13.035763 Fetched https://www.youtube.com/howyoutubeworks/ using fallback; discovered 0 link(s)
+[Search] 2026-04-03T18:25:13.043965 GET /fetch -> 200 in 523ms
+[Search] 2026-04-03T18:25:19.758990 Fetched https://www.youtube.com/creators/ using fallback; discovered 0 link(s)
+[Search] 2026-04-03T18:25:19.760044 GET /fetch -> 200 in 150ms
+[Search] 2026-04-03T18:30:35.663590 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T18:30:35.994117 Starting admin page on http://localhost:3800[Search] 2026-04-03T18:30:35.994151 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-03T18:31:11.473287 GET / -> 200 in 2ms
+[Search] 2026-04-03T18:31:35.061108 GET / -> 200 in 0ms
+[Search] 2026-04-03T18:32:05.128383 GET /health -> 200 in 9ms
+[Search] 2026-04-03T18:32:08.735995 Search query 'youtube' returned 25 result(s) from ddgs; indexed count is 189
+[Search] 2026-04-03T18:32:09.163407 GET /search -> 200 in 24444ms
+[Search] 2026-04-03T18:32:12.839250 Fetched https://www.youtube.com/ using fallback; discovered 0 link(s)
+[Search] 2026-04-03T18:32:13.121332 GET /fetch -> 200 in 1917ms
+[Search] 2026-04-03T18:32:24.122690 Fetched https://www.youtube.com/ using fallback; discovered 0 link(s)
+[Search] 2026-04-03T18:32:24.148111 GET /fetch -> 200 in 91ms
+[Search] 2026-04-03T18:32:33.398742 GET / -> 200 in 0ms
+[Search] 2026-04-03T18:32:52.199815 Search query 'telnet' returned 24 result(s) from ddgs; indexed count is 213
+[Search] 2026-04-03T18:32:52.486502 GET /search -> 200 in 13573ms
+[Search] 2026-04-03T18:33:48.594942 Fetched https://en.wikipedia.org/wiki/Telnet using requests; discovered 30 link(s)
+[Search] 2026-04-03T18:33:48.695158 GET /fetch -> 200 in 47629ms
+[Search] 2026-04-03T18:35:56.863478 GET /health -> 200 in 105ms
+[Search] 2026-04-03T18:42:48.133550 GET / -> 200 in 0ms
+[Search] 2026-04-03T18:43:01.889397 GET /static/search_app.js -> 200 in 17207ms
+[Search] 2026-04-03T18:44:16.769134 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T18:44:16.786008 Starting admin page on http://localhost:3800[Search] 2026-04-03T18:44:16.786132 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-03T18:45:07.821920 GET / -> 200 in 2446ms
+[Search] 2026-04-03T18:45:36.512747 GET /static/search_app.js -> 200 in 20621ms
+[Search] 2026-04-03T18:46:23.792615 GET / -> 200 in 1ms
+[Search] 2026-04-03T18:46:24.376366 GET /static/search_app.js -> 200 in 271ms
+[Search] 2026-04-03T18:46:52.701293 Search query 'telnet' returned 20 result(s) from ddgs; indexed count is 241
+[Search] 2026-04-03T18:46:52.808453 GET /search -> 200 in 17643ms
+[Search] 2026-04-03T18:55:08.533530 GET /health -> 200 in 224ms
+[Search] 2026-04-03T18:55:56.594216 GET /health -> 200 in 422ms
+[Search] 2026-04-03T19:11:21.699335 GET / -> 200 in 0ms
+[Search] 2026-04-03T19:11:27.056580 GET /static/search_app.js -> 304 in 2ms
+[Search] 2026-04-03T19:13:33.513582 GET /health -> 200 in 0ms
+[Search] 2026-04-03T19:15:56.617486 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T19:15:56.673343 Starting admin page on http://localhost:3800[Search] 2026-04-03T19:15:56.673437 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-03T19:16:17.575328 GET / -> 200 in 4ms
+[Search] 2026-04-03T19:16:18.232545 GET /health -> 200 in 0ms
+[Search] 2026-04-03T19:16:47.552049 GET / -> 200 in 0ms
+[Search] 2026-04-03T19:16:49.071744 GET /static/vendor/react-dom.production.min.js -> 200 in 1092ms[Search] 2026-04-03T19:16:49.072765 GET /static/search_app.js -> 200 in 1071ms[Search] 2026-04-03T19:16:49.080742 GET /static/vendor/react.production.min.js -> 200 in 1119ms
+
+
+[Search] 2026-04-03T19:16:52.924092 GET /favicon.ico -> 404 in 0ms
+[Search] 2026-04-03T19:20:41.908343 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T19:20:42.371686 Starting admin page on http://localhost:3800[Search] 2026-04-03T19:20:42.371725 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+ * Debug mode: off
+[Search] 2026-04-03T19:23:14.377724 GET /health -> 200 in 0ms
+[Search] 2026-04-03T19:23:22.688155 Search query 'notion' returned 25 result(s) from ddgs; indexed count is 266
+[Search] 2026-04-03T19:23:22.690559 GET /search -> 200 in 9520ms
+[Search] 2026-04-03T19:23:46.181787 GET /health -> 200 in 2ms
+[Search] 2026-04-03T19:23:59.090329 GET /health -> 200 in 2ms
+[Search] 2026-04-03T19:24:07.548597 GET /health -> 200 in 6ms
+[Search] 2026-04-03T19:24:10.265654 GET /health -> 200 in 2ms
+[Search] 2026-04-03T19:24:10.727428 GET / -> 200 in 44ms
+[Search] 2026-04-03T19:24:35.439534 GET /static/vendor/react-dom.production.min.js -> 304 in 24448ms
+[Search] 2026-04-03T19:24:36.454022 GET /static/vendor/react.production.min.js -> 304 in 25657ms
+[Search] 2026-04-03T19:24:37.699979 GET /static/search_app.js -> 304 in 26249ms
+[Search] 2026-04-03T20:05:47.111330 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T20:05:47.113829 Starting admin page on http://localhost:3800[Search] 2026-04-03T20:05:47.113875 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+ * Debug mode: off
+[Search] 2026-04-03T20:06:36.096752 GET /health -> 200 in 1ms
+[Search] 2026-04-03T20:07:13.889583 GET / -> 200 in 294ms
+[Search] 2026-04-03T20:07:15.370713 GET /static/vendor/react.production.min.js -> 200 in 1083ms
+[Search] 2026-04-03T20:07:15.388725 GET /static/search_app.js -> 200 in 1022ms
+[Search] 2026-04-03T20:07:15.465826 GET /static/vendor/react-dom.production.min.js -> 200 in 1136ms
+[Search] 2026-04-03T20:07:16.112918 GET /static/vendor/react-dom.production.min.js -> 200 in 2ms
+[Search] 2026-04-03T20:07:16.147578 GET /favicon.ico -> 404 in 0ms
+[Search] 2026-04-03T20:07:16.222682 GET /static/search_app.js -> 200 in 3ms
+[Search] 2026-04-03T20:07:16.262772 GET /static/vendor/react.production.min.js -> 200 in 2ms
+[Search] 2026-04-03T20:16:39.983556 GET /health -> 200 in 2ms
+[Search] 2026-04-03T20:16:40.738529 GET /health -> 200 in 2ms
+[Search] 2026-04-03T20:16:47.266406 GET / -> 200 in 1ms
+[Search] 2026-04-03T20:16:47.458575 GET /static/vendor/react-dom.production.min.js -> 304 in 2ms
+[Search] 2026-04-03T20:16:47.724853 GET /static/vendor/react.production.min.js -> 304 in 3ms
+[Search] 2026-04-03T20:16:47.914726 GET /static/search_app.js -> 304 in 27ms
+[Search] 2026-04-03T20:19:41.302222 GET /health -> 200 in 2ms
+[Search] 2026-04-03T20:21:18.728003 GET /health -> 200 in 5ms
+[Search] 2026-04-03T20:21:24.373933 GET /health -> 200 in 2ms
+[Search] 2026-04-03T20:21:24.729666 GET / -> 200 in 4ms
+[Search] 2026-04-03T20:21:24.757938 GET /static/vendor/react.production.min.js -> 304 in 3ms
+[Search] 2026-04-03T20:21:25.004883 GET /static/vendor/react-dom.production.min.js -> 304 in 9ms
+[Search] 2026-04-03T20:21:25.085709 GET /static/search_app.js -> 200 in 10ms
+[Search] 2026-04-03T20:21:26.322156 GET /favicon.ico -> 404 in 2ms
+[Search] 2026-04-03T20:36:01.579685 GET / -> 200 in 0ms
+[Search] 2026-04-03T20:36:01.626092 GET /static/vendor/react.production.min.js -> 304 in 2ms
+[Search] 2026-04-03T20:36:01.851437 GET /static/vendor/react-dom.production.min.js -> 304 in 15ms
+[Search] 2026-04-03T20:36:01.968698 GET /static/search_app.js -> 200 in 2ms
+[Search] 2026-04-03T20:36:12.441447 GET /health -> 200 in 9ms
+[Search] 2026-04-03T20:36:31.735260 GET /health -> 200 in 2ms
+[Search] 2026-04-03T20:36:41.051166 GET /health -> 200 in 5ms
+[Search] 2026-04-03T20:36:41.483838 GET / -> 200 in 0ms
+[Search] 2026-04-03T20:36:42.369362 GET /static/vendor/react.production.min.js -> 304 in 8ms[Search] 2026-04-03T20:36:42.370924 GET /static/vendor/react-dom.production.min.js -> 304 in 8ms
+
+[Search] 2026-04-03T20:36:42.689473 GET /static/search_app.js -> 304 in 13ms
+[Search] 2026-04-03T20:37:05.022741 Fetched https://pastoral-somersault-b91.notion.site/Security-Audit-Experiments-2ed2f5e6cf86804b9b13cecacd16756c using requests; discovered 0 link(s)
+[Search] 2026-04-03T20:37:05.025442 GET /fetch -> 200 in 969ms
+[Search] 2026-04-03T20:57:08.593341 GET /health -> 200 in 10ms
+[Search] 2026-04-03T20:57:15.112800 GET /health -> 200 in 4ms
+[Search] 2026-04-03T20:57:15.559089 GET / -> 200 in 16ms
+[Search] 2026-04-03T20:57:15.746440 GET /static/vendor/react.production.min.js -> 304 in 4ms
+[Search] 2026-04-03T20:57:16.051238 GET /static/vendor/react-dom.production.min.js -> 304 in 38ms
+[Search] 2026-04-03T20:57:16.279853 GET /static/search_app.js -> 304 in 48ms
+[Search] 2026-04-03T20:57:32.355328 Fetched https://pastoral-somersault-b91.notion.site/Security-Audit-Experiments-2ed2f5e6cf86804b9b13cecacd16756c using fallback; discovered 0 link(s)
+[Search] 2026-04-03T20:57:32.391194 GET /fetch -> 200 in 558ms
+[Search] 2026-04-03T21:03:57.838381 GET / -> 200 in 12ms
+[Search] 2026-04-03T21:03:57.998850 GET /static/vendor/react.production.min.js -> 304 in 2ms
+[Search] 2026-04-03T21:03:58.140937 GET /static/vendor/react-dom.production.min.js -> 304 in 22ms
+[Search] 2026-04-03T21:03:58.440300 GET /static/search_app.js -> 200 in 36ms
+[Search] 2026-04-03T21:04:24.652871 Fetched https://pastoral-somersault-b91.notion.site/Security-Audit-Experiments-2ed2f5e6cf86804b9b13cecacd16756c using requests; discovered 0 link(s)
+[Search] 2026-04-03T21:04:25.204683 GET /fetch -> 200 in 9616ms
+[Search] 2026-04-03T21:04:33.072583 Fetched https://pastoral-somersault-b91.notion.site/Security-Audit-Experiments-2ed2f5e6cf86804b9b13cecacd16756c using requests; discovered 0 link(s)
+[Search] 2026-04-03T21:04:33.133125 GET /fetch -> 200 in 7256ms
+[Search] 2026-04-03T21:07:39.862263 GET / -> 200 in 0ms
+[Search] 2026-04-03T21:07:39.925776 GET /static/vendor/react.production.min.js -> 304 in 2ms
+[Search] 2026-04-03T21:07:40.190933 GET /static/vendor/react-dom.production.min.js -> 304 in 62ms
+[Search] 2026-04-03T21:07:40.335116 GET /static/search_app.js -> 304 in 31ms
+[Search] 2026-04-03T21:08:04.834673 Fetched https://pastoral-somersault-b91.notion.site/Security-Audit-Experiments-2ed2f5e6cf86804b9b13cecacd16756c using requests; discovered 0 link(s)
+[Search] 2026-04-03T21:08:04.850627 GET /fetch -> 200 in 5709ms
+[Search] 2026-04-03T21:33:46.606171 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T21:33:46.609375 Starting admin page on http://localhost:3800[Search] 2026-04-03T21:33:46.609400 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-03T21:33:56.294186 GET /health -> 200 in 0ms
+[Search] 2026-04-03T21:34:57.978711 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-03T21:34:57.981641 Starting admin page on http://localhost:3800[Search] 2026-04-03T21:34:57.981728 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-03T21:35:01.710963 GET / -> 200 in 5ms
+[Search] 2026-04-03T21:35:01.759761 GET /static/vendor/react.production.min.js -> 304 in 37ms
+[Search] 2026-04-03T21:35:01.960491 GET /static/vendor/react-dom.production.min.js -> 304 in 0ms
+[Search] 2026-04-03T21:35:02.024643 GET /static/search_app.js -> 304 in 0ms
+[Search] 2026-04-03T21:35:22.305127 Fetched https://pastoral-somersault-b91.notion.site/Security-Audit-Experiments-2ed2f5e6cf86804b9b13cecacd16756c using browser; discovered 14 link(s)
+[Search] 2026-04-03T21:35:22.305788 GET /fetch -> 200 in 10421ms
+[Search] 2026-04-03T21:35:43.240229 Fetched https://pastoral-somersault-b91.notion.site/Exp-12-3272f5e6cf868056b493f290c3b0d135?pvs=25 using browser; discovered 1 link(s)
+[Search] 2026-04-03T21:35:43.248741 GET /fetch -> 200 in 11458ms
+[Search] 2026-04-03T21:37:37.416132 GET /health -> 200 in 7ms
+[Search] 2026-04-03T21:37:40.635285 GET /health -> 200 in 355ms
+[Search] 2026-04-03T21:37:41.149554 GET / -> 200 in 1ms
+[Search] 2026-04-03T21:37:41.173194 GET /static/vendor/react.production.min.js -> 304 in 2ms
+[Search] 2026-04-03T21:37:41.406195 GET /static/vendor/react-dom.production.min.js -> 304 in 4ms
+[Search] 2026-04-03T21:37:41.483530 GET /static/search_app.js -> 304 in 3ms
+[Search] 2026-04-03T21:37:41.505164 GET /static/vendor/react.production.min.js -> 200 in 2ms
+[Search] 2026-04-03T21:37:41.736914 GET /static/vendor/react-dom.production.min.js -> 200 in 4ms
+[Search] 2026-04-03T21:37:41.754158 GET /static/search_app.js -> 200 in 4ms
+[Search] 2026-04-03T21:38:33.030702 Search query 'youtube' returned 25 result(s) from ddgs; indexed count is 283
+[Search] 2026-04-03T21:38:33.042926 GET /search -> 200 in 7462ms
+[Search] 2026-04-03T21:39:21.671762 Fetched https://www.geeksforgeeks.org/python/python-programming-language-tutorial/ using requests; discovered 30 link(s)
+[Search] 2026-04-03T21:39:21.687266 GET /fetch -> 200 in 792ms
+[Search] 2026-04-03T21:39:29.104972 Fetched https://www.geeksforgeeks.org/python/python-programming-language-tutorial/ using requests; discovered 30 link(s)
+[Search] 2026-04-03T21:39:29.116684 GET /fetch -> 200 in 1876ms
+[Search] 2026-04-07T16:13:14.941149 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-07T16:13:14.945226 Starting admin page on http://localhost:3800[Search] 2026-04-07T16:13:14.945265 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_search'
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Debug mode: off
+[Search] 2026-04-07T16:15:34.018675 GET /health -> 200 in 2ms
+[Search] 2026-04-07T16:16:02.822849 GET / -> 200 in 118ms
+[Search] 2026-04-07T16:16:03.597584 GET /static/search_app.js -> 200 in 152ms
+[Search] 2026-04-07T16:16:03.801030 GET /static/vendor/react.production.min.js -> 304 in 16ms
+[Search] 2026-04-07T16:16:03.941086 GET /static/vendor/react-dom.production.min.js -> 304 in 74ms
+[Search] 2026-04-07T16:16:04.234095 GET /static/vendor/react.production.min.js -> 200 in 1ms
+[Search] 2026-04-07T16:16:04.393899 GET /static/vendor/react-dom.production.min.js -> 200 in 1ms
+[Search] 2026-04-07T16:16:04.825024 GET /static/search_app.js -> 200 in 1ms
+[Search] 2026-04-07T16:16:05.105087 GET /favicon.ico -> 404 in 0ms
+[Search] 2026-04-07T16:18:13.163123 GET /health -> 200 in 1ms
+[Search] 2026-04-07T16:18:33.194099 GET /health -> 200 in 1ms
+[Search] 2026-04-07T16:18:35.739018 GET /health -> 200 in 0ms
+[Search] 2026-04-07T16:18:47.025466 GET /health -> 200 in 1ms
+[Search] 2026-04-07T16:18:55.929245 GET /health -> 200 in 1ms
+[Search] 2026-04-07T16:19:03.497916 GET /health -> 200 in 1ms
+[Search] 2026-04-07T16:19:08.888826 GET /health -> 200 in 1ms
+[Search] 2026-04-07T16:19:15.899917 GET /health -> 200 in 1ms
+[Search] 2026-04-07T16:19:45.345645 GET /health -> 200 in 1ms
+[Search] 2026-04-07T16:19:55.445562 GET /health -> 200 in 1ms
+[Search] 2026-04-07T16:20:15.995248 GET /health -> 200 in 1ms
+[Search] 2026-04-07T16:20:35.985078 GET /health -> 200 in 0ms
+[Search] 2026-04-07T16:21:04.201528 GET /health -> 200 in 0ms
+[Search] 2026-04-07T16:21:09.380073 GET /health -> 200 in 0ms
+[Search] 2026-04-07T16:21:11.327303 GET / -> 200 in 0ms
+[Search] 2026-04-07T16:21:11.704597 GET /static/search_app.js -> 304 in 1ms
+[Search] 2026-04-07T16:21:12.365220 GET /static/vendor/react-dom.production.min.js -> 304 in 1ms
+[Search] 2026-04-07T16:21:12.445611 GET /static/vendor/react.production.min.js -> 304 in 1ms
+[Search] 2026-04-07T16:21:24.614140 GET /health -> 200 in 1ms
+[Search] 2026-04-07T16:21:56.073145 Fetched https://pastoral-somersault-b91.notion.site/Security-Audit-Experiments-2ed2f5e6cf86804b9b13cecacd16756c using browser; discovered 0 link(s)
+[Search] 2026-04-07T16:21:56.074929 GET /fetch -> 200 in 12108ms
+[Search] 2026-04-07T16:21:56.109761 Fetched https://pastoral-somersault-b91.notion.site/Security-Audit-Experiments-2ed2f5e6cf86804b9b13cecacd16756c using browser; discovered 0 link(s)
+[Search] 2026-04-07T16:21:56.111928 GET /fetch -> 200 in 18086ms
+[Search] 2026-04-07T16:22:31.273610 GET /health -> 200 in 0ms
+[Search] 2026-04-07T16:23:24.683075 GET /health -> 200 in 1ms
+[Search] 2026-04-07T16:24:24.231901 GET /health -> 200 in 1ms
+[Search] 2026-04-07T22:25:02.956780 GET /health -> 200 in 2ms
+[Search] 2026-04-07T22:25:24.068183 GET /health -> 200 in 0ms
+[Search] 2026-04-15T16:42:32.179979 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-15T16:42:32.182639 Starting admin page on http://localhost:3800[Search] 2026-04-15T16:42:32.182695 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-15T16:49:49.483634 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-15T16:49:49.486109 Starting admin page on http://localhost:3800[Search] 2026-04-15T16:49:49.486145 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-15T16:51:38.819691 GET /health -> 200 in 3ms
+[Search] 2026-04-15T16:55:44.196107 GET /health -> 200 in 3ms
+[Search] 2026-04-15T16:59:47.962052 GET /health -> 200 in 2ms
+[Search] 2026-04-15T17:00:08.096520 GET /health -> 200 in 2ms
+[Search] 2026-04-15T17:04:25.472091 GET /health -> 200 in 2ms
+[Search] 2026-04-15T17:45:37.208491 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-15T17:45:37.211106 Starting admin page on http://localhost:3800[Search] 2026-04-15T17:45:37.211154 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-15T17:45:49.790066 GET / -> 200 in 4ms
+[Search] 2026-04-15T17:45:50.027773 GET /favicon.ico -> 404 in 0ms
+[Search] 2026-04-15T17:45:50.048737 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-15T17:45:50.049395 GET /api/state -> 200 in 183ms
+[Search] 2026-04-15T18:19:19.168142 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-15T18:19:19.169572 Starting admin page on http://localhost:3800
+[Search] 2026-04-15T18:19:19.169748 Starting search engine on http://localhost:4000
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-15T18:32:57.311297 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-15T18:32:57.312827 Starting admin page on http://localhost:3800[Search] 2026-04-15T18:32:57.312852 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-15T18:33:00.151226 GET /health -> 200 in 5ms
+[Search] 2026-04-15T18:33:44.913628 GET / -> 200 in 263ms
+[Search] 2026-04-15T18:33:45.259160 GET /static/vendor/react.production.min.js -> 200 in 325ms
+[Search] 2026-04-15T18:33:45.278280 GET /static/vendor/react-dom.production.min.js -> 200 in 344ms
+[Search] 2026-04-15T18:33:45.342099 GET /static/search_app.js -> 200 in 91ms
+[Search] 2026-04-15T18:33:45.790800 GET /favicon.ico -> 404 in 0ms
+[Search] 2026-04-15T18:33:46.547103 GET /static/search_app.js -> 200 in 0ms
+[Search] 2026-04-15T18:33:46.550973 GET /static/vendor/react.production.min.js -> 200 in 1ms
+[Search] 2026-04-15T18:33:46.555160 GET /static/vendor/react-dom.production.min.js -> 200 in 3ms
+[Search] 2026-04-15T18:35:04.069541 GET /health -> 200 in 2ms
+[Search] 2026-04-15T18:35:15.874130 GET /health -> 200 in 2ms
+[Search] 2026-04-15T18:35:16.233853 GET / -> 200 in 2ms
+[Search] 2026-04-15T18:35:16.254696 GET /static/vendor/react.production.min.js -> 304 in 2ms
+[Search] 2026-04-15T18:35:16.502830 GET /static/vendor/react-dom.production.min.js -> 304 in 2ms
+[Search] 2026-04-15T18:35:16.566387 GET /static/search_app.js -> 304 in 2ms
+[Search] 2026-04-15T18:35:17.740408 GET /static/vendor/react.production.min.js -> 304 in 1ms[Search] 2026-04-15T18:35:17.741028 GET /static/vendor/react-dom.production.min.js -> 304 in 1ms
+[Search] 2026-04-15T18:35:17.742169 GET /static/search_app.js -> 304 in 1ms
+
+[Search] 2026-04-15T18:36:05.324719 Fetched https://mm.redgrape.tech/redgrape-technologies/channels/interns using browser; discovered 0 link(s)
+[Search] 2026-04-15T18:36:05.325880 GET /fetch -> 200 in 12448ms
+[Search] 2026-04-15T18:36:06.263782 Fetched https://mm.redgrape.tech/redgrape-technologies/channels/interns using browser; discovered 0 link(s)
+[Search] 2026-04-15T18:36:06.264995 GET /fetch -> 200 in 19324ms
+[Search] 2026-04-15T18:38:29.032204 GET / -> 200 in 0ms
+[Search] 2026-04-15T18:38:29.061496 GET /static/vendor/react.production.min.js -> 304 in 2ms
+[Search] 2026-04-15T18:38:29.300246 GET /static/vendor/react-dom.production.min.js -> 304 in 3ms
+[Search] 2026-04-15T18:38:29.365729 GET /static/search_app.js -> 304 in 2ms
+[Search] 2026-04-15T18:38:29.379271 GET /static/vendor/react.production.min.js -> 304 in 4ms
+[Search] 2026-04-15T18:38:29.632143 GET /static/vendor/react-dom.production.min.js -> 304 in 5ms
+[Search] 2026-04-15T18:38:29.634855 GET /static/search_app.js -> 304 in 4ms
+[Search] 2026-04-15T18:38:41.827418 Fetched https://mm.redgrape.tech/redgrape-technologies/channels/interns using browser; discovered 2 link(s)
+[Search] 2026-04-15T18:38:41.834411 GET /fetch -> 200 in 6433ms
+[Search] 2026-04-15T18:39:01.110813 Fetched https://mm.redgrape.tech/redgrape-technologies/channels/interns using browser; discovered 0 link(s)
+[Search] 2026-04-15T18:39:01.114230 GET /fetch -> 200 in 10081ms
+[Search] 2026-04-15T18:39:25.716233 Fetched https://mm.redgrape.tech/redgrape-technologies/channels/interns using browser; discovered 2 link(s)
+[Search] 2026-04-15T18:39:25.723437 GET /fetch -> 200 in 8305ms
+[Search] 2026-04-15T18:39:30.660395 Fetched https://mattermost.com/download/#mattermostApps using requests; discovered 30 link(s)
+[Search] 2026-04-15T18:39:30.668609 GET /fetch -> 200 in 2278ms
+[Search] 2026-04-15T19:00:31.180555 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-15T19:00:31.339508 Starting admin page on http://localhost:3800[Search] 2026-04-15T19:00:31.339558 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-15T19:00:57.893980 Fetched https://example.com using browser; discovered 1 link(s)
+[Search] 2026-04-15T19:00:57.894811 GET /fetch -> 200 in 7379ms
+[Search] 2026-04-15T19:05:46.835705 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-15T19:05:46.844992 Starting admin page on http://localhost:3800[Search] 2026-04-15T19:05:46.845048 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-15T19:05:50.144079 GET /api/content-policy -> 200 in 1ms
+[Search] 2026-04-15T19:05:58.743386 Fetched https://example.com using browser; discovered 1 link(s)
+[Search] 2026-04-15T19:05:58.743753 GET /fetch -> 200 in 8568ms
+[Search] 2026-04-15T19:08:19.068216 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-15T19:08:19.074694 Starting admin page on http://localhost:3800[Search] 2026-04-15T19:08:19.074715 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-15T19:48:16.906437 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-15T19:48:16.914641 Starting admin page on http://localhost:3800[Search] 2026-04-15T19:48:16.914662 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-15T19:48:31.790142 Auto-generated rules file from 4 source file(s)
+[Search] 2026-04-15T19:48:31.799835 Starting admin page on http://localhost:3800[Search] 2026-04-15T19:48:31.799858 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-15T22:23:40.215410 Auto-generated rules file from 3 source file(s)
+[Search] 2026-04-15T22:23:40.298428 Starting admin page on http://localhost:3800[Search] 2026-04-15T22:23:40.298468 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-15T23:07:11.980239 GET / -> 200 in 162ms
+[Search] 2026-04-15T23:07:12.320479 GET /favicon.ico -> 404 in 1ms
+[Search] 2026-04-15T23:07:13.034679 Auto-generated rules file from 3 source file(s)
+[Search] 2026-04-15T23:07:13.039412 GET /api/state -> 200 in 724ms
+[Search] 2026-04-15T23:13:30.896407 GET / -> 200 in 378ms
+[Search] 2026-04-15T23:13:31.806094 GET /static/vendor/react.production.min.js -> 304 in 881ms
+[Search] 2026-04-15T23:13:31.932184 GET /static/vendor/react-dom.production.min.js -> 304 in 1000ms
+[Search] 2026-04-15T23:13:32.025373 GET /static/search_app.js -> 200 in 786ms
+[Search] 2026-04-15T23:13:32.439628 GET /api/content-policy -> 200 in 8ms
+[Search] 2026-04-15T23:13:33.473064 GET /static/vendor/react.production.min.js -> 304 in 4ms
+[Search] 2026-04-15T23:13:33.477999 GET /static/vendor/react-dom.production.min.js -> 304 in 6ms
+[Search] 2026-04-15T23:13:33.481038 GET /static/search_app.js -> 200 in 5ms
+[Search] 2026-04-15T23:14:26.134032 Fetched https://pastoral-somersault-b91.notion.site/Security-Audit-Experiments-2ed2f5e6cf86804b9b13cecacd16756c using browser; discovered 14 link(s)
+[Search] 2026-04-15T23:14:26.136786 GET /fetch -> 200 in 18973ms
+[Search] 2026-04-15T23:14:46.302355 Fetched https://pastoral-somersault-b91.notion.site/Exp-1-2ed2f5e6cf868088a5b6dd309b6af20a?pvs=25 using browser; discovered 2 link(s)
+[Search] 2026-04-15T23:14:46.303548 GET /fetch -> 200 in 7602ms
+[Search] 2026-04-15T23:18:02.519639 GET /health -> 200 in 6ms
+[Search] 2026-04-15T23:18:12.868297 GET /health -> 200 in 1ms
+[Search] 2026-04-15T23:18:28.364360 GET /health -> 200 in 1ms
+[Search] 2026-04-15T23:18:36.925696 GET /health -> 200 in 0ms
+[Search] 2026-04-15T23:19:01.057131 GET /health -> 200 in 2ms
+[Search] 2026-04-15T23:19:33.559130 GET /health -> 200 in 3ms
+[Search] 2026-04-15T23:19:34.456305 GET /health -> 200 in 5ms
+[Search] 2026-04-15T23:19:42.046576 GET /health -> 200 in 3ms
+[Search] 2026-04-15T23:20:05.810727 GET /health -> 200 in 3ms
+[Search] 2026-04-15T23:20:24.565866 GET /health -> 200 in 3ms
+[Search] 2026-04-15T23:21:15.160109 GET /health -> 200 in 24ms
+[Search] 2026-04-15T23:21:24.302739 GET /health -> 200 in 1ms
+[Search] 2026-04-15T23:22:23.956133 GET /health -> 200 in 1ms
+[Search] 2026-04-15T23:23:24.433331 GET /health -> 200 in 1ms
+[Search] 2026-04-15T23:24:34.825171 GET /health -> 200 in 1ms
+[Search] 2026-04-15T23:25:36.986490 GET /health -> 200 in 1ms
+[Search] 2026-04-15T23:26:28.977947 GET /health -> 200 in 1ms
+[Search] 2026-04-15T23:27:33.011951 GET /health -> 200 in 25ms
+[Search] 2026-04-15T23:28:45.842927 GET /health -> 200 in 1ms
+[Search] 2026-04-15T23:29:30.383783 GET /health -> 200 in 1ms
+[Search] 2026-04-15T23:30:32.424998 GET /health -> 200 in 0ms
+[Search] 2026-04-16T22:22:55.350410 Auto-generated rules file from 3 source file(s)
+[Search] 2026-04-16T22:22:55.358845 Auto-generated rules file from 3 source file(s)
+[Search] 2026-04-16T22:22:55.564962 Starting admin page on http://localhost:3800[Search] 2026-04-16T22:22:55.565016 Starting search engine on http://localhost:4000
+[Search] 2026-04-16T22:22:55.565144 Starting admin page on http://localhost:3800[Search] 2026-04-16T22:22:55.565186 Starting search engine on http://localhost:4000
+
+
+ * Serving Flask app 'firewall_guard_search'
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Debug mode: off
+ * Debug mode: off
+[Search] 2026-04-16T22:23:03.756667 GET / -> 200 in 19ms
+[Search] 2026-04-16T22:23:11.558564 GET /static/vendor/react.production.min.js -> 304 in 457ms
+[Search] 2026-04-16T22:23:11.668618 GET /static/search_app.js -> 304 in 575ms
+[Search] 2026-04-16T22:23:11.741698 GET /static/vendor/react-dom.production.min.js -> 304 in 713ms
+[Search] 2026-04-16T22:23:14.250573 GET /api/content-policy -> 200 in 1ms
+[Search] 2026-04-16T22:23:14.642928 GET /static/vendor/react.production.min.js -> 304 in 0ms
+[Search] 2026-04-16T22:23:15.246737 GET /static/search_app.js -> 304 in 0ms
+[Search] 2026-04-16T22:23:15.632452 GET /static/vendor/react-dom.production.min.js -> 304 in 0ms
+[Search] 2026-04-16T23:20:01.973781 Auto-generated rules file from 3 source file(s)
+[Search] 2026-04-16T23:20:01.986878 Starting admin page on http://localhost:3800[Search] 2026-04-16T23:20:01.986924 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+ * Debug mode: off
+[Search] 2026-04-16T23:20:33.525664 GET / -> 200 in 0ms
+[Search] 2026-04-16T23:20:33.578831 GET /static/vendor/react.production.min.js -> 304 in 2ms
+[Search] 2026-04-16T23:20:33.788211 GET /static/vendor/react-dom.production.min.js -> 304 in 1ms
+[Search] 2026-04-16T23:20:33.882954 GET /static/search_app.js -> 304 in 1ms
+[Search] 2026-04-16T23:20:34.196202 GET /api/content-policy -> 200 in 1ms
+[Search] 2026-04-16T23:20:34.401924 GET /static/search_app.js -> 304 in 1ms
+[Search] 2026-04-16T23:20:34.449029 GET /static/vendor/react.production.min.js -> 304 in 2ms
+[Search] 2026-04-16T23:20:34.450326 GET /static/vendor/react-dom.production.min.js -> 304 in 2ms
+[Search] 2026-04-17T00:46:13.397887 Auto-generated rules file from 3 source file(s)
+[Search] 2026-04-17T00:46:13.557550 Starting admin page on http://localhost:3800
+[Search] 2026-04-17T00:46:13.557681 Starting search engine on http://localhost:4000
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-17T21:37:26.235637 Auto-generated rules file from 3 source file(s)
+[Search] 2026-04-17T21:37:26.250104 Starting admin page on http://localhost:3800[Search] 2026-04-17T21:37:26.250153 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-17T22:06:26.170573 Auto-generated rules file from 3 source file(s)
+[Search] 2026-04-17T22:06:26.183885 Starting admin page on http://localhost:3800
+[Search] 2026-04-17T22:06:26.183943 Starting search engine on http://localhost:4000
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-17T22:08:10.133220 Auto-generated rules file from 3 source file(s)
+[Search] 2026-04-17T22:08:10.143559 Starting admin page on http://localhost:3800
+[Search] 2026-04-17T22:08:10.143597 Starting search engine on http://localhost:4000
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-17T22:21:58.631672 Auto-generated rules file from 3 source file(s)
+[Search] 2026-04-17T22:21:58.641911 Starting admin page on http://localhost:3800
+[Search] 2026-04-17T22:21:58.641975 Starting search engine on http://localhost:4000
+ * Serving Flask app 'firewall_guard_admin'
+ * Debug mode: off
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+[Search] 2026-04-18T10:10:38.933886 Auto-generated rules file from 3 source file(s)
+[Search] 2026-04-18T10:10:39.085270 Starting admin page on http://localhost:3800[Search] 2026-04-18T10:10:39.085303 Starting search engine on http://localhost:4000
+
+ * Serving Flask app 'firewall_guard_admin'
+ * Serving Flask app 'firewall_guard_search'
+ * Debug mode: off
+ * Debug mode: off
+[Search] 2026-04-18T10:17:45.027294 GET / -> 200 in 42ms
+[Search] 2026-04-18T10:17:45.338306 GET /favicon.ico -> 404 in 0ms
+[Search] 2026-04-18T10:17:45.630153 Auto-generated rules file from 3 source file(s)
+[Search] 2026-04-18T10:17:45.630844 GET /api/state -> 200 in 560ms
+[Search] 2026-04-18T10:19:38.770113 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:19:57.245585 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:20:17.845242 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:20:26.912383 GET /health -> 200 in 1ms
+[Search] 2026-04-18T10:20:38.987180 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:20:43.739401 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:21:02.506389 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:21:17.979139 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:21:41.062909 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:21:58.530743 GET /health -> 200 in 1ms
+[Search] 2026-04-18T10:23:00.171754 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:24:00.296145 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:24:35.846100 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:24:55.530176 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:24:58.978501 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:25:14.289424 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:25:29.329049 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:26:01.817150 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:26:59.427189 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:28:03.117994 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:28:59.169968 GET /health -> 200 in 3ms
+[Search] 2026-04-18T10:30:00.228332 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:30:59.088561 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:32:01.051380 GET /health -> 200 in 0ms
+[Search] 2026-04-18T10:32:25.968926 GET /health -> 200 in 2ms
+[Search] 2026-04-18T10:44:56.612269 GET /health -> 200 in 1ms
+[Search] 2026-04-18T10:45:21.517040 GET /health -> 200 in 1ms
+[Search] 2026-04-18T10:45:44.408630 GET /health -> 200 in 1ms
+[Search] 2026-04-18T10:55:12.768079 GET /health -> 200 in 3ms
+[Search] 2026-04-18T10:55:13.014477 GET /health -> 200 in 2ms
+[Search] 2026-04-18T10:55:13.079381 GET /health -> 200 in 3ms
+[Search] 2026-04-18T10:55:13.717336 GET / -> 200 in 294ms
+[Search] 2026-04-18T10:55:14.855289 GET /static/vendor/react.production.min.js -> 304 in 1108ms
+[Search] 2026-04-18T10:55:15.045574 GET /static/vendor/react-dom.production.min.js -> 304 in 1297ms
+[Search] 2026-04-18T10:55:15.224072 GET /static/search_app.js -> 304 in 1161ms
+[Search] 2026-04-18T10:55:15.266934 GET /static/vendor/react.production.min.js -> 304 in 3ms
+[Search] 2026-04-18T10:55:15.506150 GET /static/vendor/react-dom.production.min.js -> 304 in 2ms
+[Search] 2026-04-18T10:55:15.605464 GET /static/search_app.js -> 304 in 4ms
+[Search] 2026-04-18T10:55:15.617951 GET /api/content-policy -> 200 in 6ms
+[Search] 2026-04-18T10:55:15.689681 GET /favicon.ico -> 404 in 0ms

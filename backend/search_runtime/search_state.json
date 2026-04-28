@@ -1,0 +1,17 @@
+{
+  "blocked_patterns": [],
+  "delayed_patterns": [],
+  "last_updated": "2026-04-18T10:17:45.624132",
+  "last_rule_extract": {
+    "timestamp": "2026-04-18T10:17:45.624121",
+    "output_file": "C:\\Users\\Dev Arora\\Desktop\\firewall\\backend\\search_runtime\\extracted_rules.txt",
+    "source_label": "automatic",
+    "source_files": [
+      "C:\\Users\\Dev Arora\\Desktop\\firewall\\local_engine\\firewall_rules.json",
+      "C:\\Users\\Dev Arora\\Desktop\\firewall\\backend\\rules_database.json",
+      "C:\\Users\\Dev Arora\\Desktop\\firewall\\backend\\console_firewall_policy.json"
+    ],
+    "total_extracted": 638,
+    "policy_rule_count": 543
+  }
+}
