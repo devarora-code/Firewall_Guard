@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension Server Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #ff6b6b;
+            padding-bottom: 10px;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .status-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .status-active {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-ended {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔥 Extension Server Dashboard</h1>
+            <p>Chrome Extension API Server - Real-time Monitoring</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="active-sessions">-</div>
+                <div class="stat-label">Active Sessions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="total-requests">-</div>
+                <div class="stat-label">Total Requests</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="blocked-requests">-</div>
+                <div class="stat-label">Blocked Requests</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="server-uptime">-</div>
+                <div class="stat-label">Server Status</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>📊 Active Sessions</h2>
+                <div class="table-container">
+                    <table id="sessions-table">
+                        <thead>
+                            <tr>
+                                <th>Session ID</th>
+                                <th>Created</th>
+                                <th>Status</th>
+                                <th>Requests</th>
+                                <th>Blocked</th>
+                                <th>Last Activity</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="7" class="loading">Loading sessions...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📝 Recent Requests</h2>
+                <div class="table-container">
+                    <table id="requests-table">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Session ID</th>
+                                <th>URL</th>
+                                <th>Action</th>
+                                <th>Decision</th>
+                                <th>Risk Level</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="6" class="loading">Loading requests...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" onclick="refreshData()">🔄 Refresh Data</button>
+                <button class="btn" onclick="clearAllSessions()">🗑️ Clear All Sessions</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let refreshInterval;
+        
+        async function fetchData(endpoint) {
+            try {
+                const response = await fetch(`/api/${endpoint}`);
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error(`Error fetching ${endpoint}:`, error);
+                return null;
+            }
+        }
+        
+        async function updateStats() {
+            const status = await fetchData('status');
+            if (status) {
+                document.getElementById('active-sessions').textContent = status.active_sessions || 0;
+                document.getElementById('total-requests').textContent = status.total_requests || 0;
+                document.getElementById('server-uptime').textContent = status.status || 'unknown';
+            }
+        }
+        
+        async function updateSessions() {
+            const sessionsData = await fetchData('sessions');
+            const tbody = document.querySelector('#sessions-table tbody');
+            
+            if (sessionsData && sessionsData.success) {
+                const sessions = Object.values(sessionsData.sessions);
+                
+                if (sessions.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 20px;">No active sessions</td></tr>';
+                    return;
+                }
+                
+                tbody.innerHTML = sessions.map(session => `
+                    <tr>
+                        <td>${session.session_id.substring(0, 8)}...</td>
+                        <td>${new Date(session.created_at).toLocaleString()}</td>
+                        <td><span class="status-badge status-${session.status}">${session.status}</span></td>
+                        <td>${session.requests_count || 0}</td>
+                        <td>${session.blocked_requests || 0}</td>
+                        <td>${new Date(session.last_activity).toLocaleString()}</td>
+                        <td>
+                            <button class="btn" onclick="endSession('${session.session_id}')" style="padding: 5px 15px; font-size: 0.9em;">
+                                End Session
+                            </button>
+                        </td>
+                    </tr>
+                `).join('');
+                
+                // Update blocked requests stat
+                const totalBlocked = sessions.reduce((sum, session) => sum + (session.blocked_requests || 0), 0);
+                document.getElementById('blocked-requests').textContent = totalBlocked;
+            } else {
+                tbody.innerHTML = '<tr><td colspan="7" class="error">Failed to load sessions</td></tr>';
+            }
+        }
+        
+        async function updateRequests() {
+            const requestsData = await fetchData('requests/recent?limit=20');
+            const tbody = document.querySelector('#requests-table tbody');
+            
+            if (requestsData && requestsData.success) {
+                const requests = requestsData.requests;
+                
+                if (requests.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px;">No recent requests</td></tr>';
+                    return;
+                }
+                
+                tbody.innerHTML = requests.map(request => `
+                    <tr>
+                        <td>${new Date(request.timestamp).toLocaleString()}</td>
+                        <td>${request.session_id.substring(0, 8)}...</td>
+                        <td>${request.url.length > 50 ? request.url.substring(0, 50) + '...' : request.url}</td>
+                        <td>${request.action}</td>
+                        <td><span class="status-badge status-${request.decision}">${request.decision}</span></td>
+                        <td>${request.risk_level}</td>
+                    </tr>
+                `).join('');
+            } else {
+                tbody.innerHTML = '<tr><td colspan="6" class="error">Failed to load requests</td></tr>';
+            }
+        }
+        
+        async function endSession(sessionId) {
+            if (!confirm('Are you sure you want to end this session?')) return;
+            
+            try {
+                const response = await fetch(`/api/session/${sessionId}/end`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ reason: 'manual_end' })
+                });
+                
+                if (response.ok) {
+                    showMessage('Session ended successfully', 'success');
+                    refreshData();
+                } else {
+                    showMessage('Failed to end session', 'error');
+                }
+            } catch (error) {
+                showMessage('Error ending session: ' + error.message, 'error');
+            }
+        }
+        
+        async function clearAllSessions() {
+            if (!confirm('Are you sure you want to clear all active sessions?')) return;
+            
+            const sessionsData = await fetchData('sessions');
+            if (sessionsData && sessionsData.success) {
+                const sessions = Object.keys(sessionsData.sessions);
+                
+                for (const sessionId of sessions) {
+                    try {
+                        await fetch(`/api/session/${sessionId}/end`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ reason: 'manual_clear_all' })
+                        });
+                    } catch (error) {
+                        console.error('Error ending session:', sessionId, error);
+                    }
+                }
+                
+                showMessage('All sessions cleared', 'success');
+                refreshData();
+            }
+        }
+        
+        function showMessage(message, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = type;
+            messageDiv.textContent = message;
+            messageDiv.style.position = 'fixed';
+            messageDiv.style.top = '20px';
+            messageDiv.style.right = '20px';
+            messageDiv.style.zIndex = '1000';
+            messageDiv.style.padding = '15px 20px';
+            messageDiv.style.borderRadius = '5px';
+            messageDiv.style.maxWidth = '300px';
+            
+            document.body.appendChild(messageDiv);
+            
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 3000);
+        }
+        
+        function refreshData() {
+            updateStats();
+            updateSessions();
+            updateRequests();
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            refreshData();
+            
+            // Auto-refresh every 10 seconds
+            refreshInterval = setInterval(refreshData, 10000);
+        });
+        
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', function() {
+            if (refreshInterval) {
+                clearInterval(refreshInterval);
+            }
+        });
+    </script>
+</body>
+</html>
