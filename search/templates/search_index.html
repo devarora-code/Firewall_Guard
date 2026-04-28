@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firewall Guard Search Engine</title>
+    <style>
+        :root {
+            --bg: #f3f3f3;
+            --panel: #ffffff;
+            --line: #d4d4d4;
+            --line-strong: #adadad;
+            --text: #111111;
+            --muted: #565656;
+            --button: #ffffff;
+            --button-hover: #f3f7ff;
+            --current-bg: #e9f2ff;
+            --current-line: #8cb3e6;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, "Segoe UI", sans-serif;
+        }
+
+        .page {
+            width: min(980px, calc(100% - 24px));
+            margin: 16px auto 28px;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        .section {
+            margin-bottom: 12px;
+            padding: 14px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+        }
+
+        .section h3 {
+            margin: 0 0 12px;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .toolbar,
+        .button-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .toolbar input {
+            flex: 1 1 360px;
+        }
+
+        input,
+        button {
+            font: inherit;
+            color: var(--text);
+            background: #ffffff;
+            border: 1px solid var(--line-strong);
+            border-radius: 4px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px 10px;
+        }
+
+        button {
+            padding: 8px 12px;
+            background: var(--button);
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: var(--button-hover);
+        }
+
+        button:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        .meta,
+        .empty {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.45;
+            white-space: pre-wrap;
+        }
+
+        .status {
+            margin-top: 10px;
+            padding: 10px 12px;
+            border: 1px solid var(--line);
+            background: #fafafa;
+            white-space: pre-wrap;
+            line-height: 1.45;
+        }
+
+        .button-grid {
+            margin-top: 8px;
+            align-items: stretch;
+        }
+
+        .result-button {
+            width: 100%;
+            padding: 10px 12px;
+            text-align: left;
+            white-space: normal;
+            line-height: 1.45;
+            background: #fafafa;
+        }
+
+        .result-button.current {
+            background: var(--current-bg);
+            border-color: var(--current-line);
+        }
+
+        .result-title {
+            display: block;
+            font-weight: 700;
+        }
+
+        .result-url {
+            display: block;
+            margin-top: 4px;
+            color: var(--muted);
+            font-family: Consolas, "Courier New", monospace;
+            word-break: break-all;
+        }
+
+        .content {
+            margin-top: 8px;
+            min-height: 120px;
+            padding: 10px;
+            border: 1px solid var(--line);
+            background: #fafafa;
+            line-height: 1.45;
+            overflow: auto;
+        }
+
+        .content.plain {
+            white-space: pre-wrap;
+            font-family: Consolas, "Courier New", monospace;
+        }
+
+        .content-preview {
+            margin-top: 8px;
+            min-height: 220px;
+            max-height: 68vh;
+            border: 1px solid var(--line);
+            background: #ffffff;
+            overflow: auto;
+        }
+
+        .preview-canvas {
+            padding: 18px;
+            line-height: 1.5;
+            color: var(--text);
+        }
+
+        .preview-canvas a {
+            color: #0b57d0;
+            cursor: pointer;
+        }
+
+        .preview-canvas img,
+        .preview-canvas picture,
+        .preview-canvas video,
+        .preview-canvas audio,
+        .preview-canvas canvas,
+        .preview-canvas iframe {
+            display: none !important;
+        }
+
+        .text-details {
+            margin-top: 10px;
+        }
+
+        .text-details summary {
+            cursor: pointer;
+            color: var(--muted);
+        }
+
+        .text-content {
+            max-height: 260px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="{{ url_for('static', filename='vendor/react.production.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/react-dom.production.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='search_app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firewall Guard Admin Page</title>
+
+    <style>
+        :root {
+            --bg: #f3f3f3;
+            --panel: #ffffff;
+            --line: #d4d4d4;
+            --line-strong: #adadad;
+            --text: #111111;
+            --muted: #565656;
+            --button: #efefef;
+            --button-hover: #e2e2e2;
+            --danger-bg: #fce9e9;
+            --danger-line: #d5a3a3;
+            --warn-bg: #fff3d4;
+            --warn-line: #d5bf78;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, "Segoe UI", sans-serif;
+        }
+
+        .page {
+            width: min(1100px, calc(100% - 24px));
+            margin: 16px auto 28px;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        .section {
+            margin-bottom: 12px;
+            padding: 14px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+        }
+
+        .section h2,
+        .section h3 {
+            margin: 0 0 12px;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .toolbar,
+        .policy-fields,
+        .row-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .toolbar input {
+            flex: 1 1 360px;
+        }
+
+        .policy-fields input[type="text"] {
+            flex: 1 1 320px;
+        }
+
+        input,
+        textarea,
+        button {
+            font: inherit;
+            color: var(--text);
+            background: #ffffff;
+            border: 1px solid var(--line-strong);
+            border-radius: 4px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px 10px;
+        }
+
+        textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        button {
+            padding: 8px 12px;
+            background: var(--button);
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: var(--button-hover);
+        }
+
+        button:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        button.danger {
+            background: var(--danger-bg);
+            border-color: var(--danger-line);
+        }
+
+        button.warn {
+            background: var(--warn-bg);
+            border-color: var(--warn-line);
+        }
+
+        .meta,
+        .empty,
+        .row-host,
+        .row-note {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.45;
+        }
+
+        .meta {
+            white-space: pre-wrap;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 6px;
+            color: #333333;
+            font-size: 14px;
+        }
+
+        .columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .column-title {
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .list {
+            margin-top: 8px;
+        }
+
+        .row {
+            padding: 10px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .row:first-child {
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .row-line {
+            word-break: break-word;
+            line-height: 1.45;
+        }
+
+        .row-title {
+            font-weight: 700;
+        }
+
+        .row-url {
+            font-family: Consolas, "Courier New", monospace;
+        }
+
+        .row-actions {
+            margin-top: 8px;
+        }
+
+        .preview-wrap {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid var(--line);
+        }
+
+        .preview,
+        .content {
+            margin: 0;
+            padding: 10px;
+            border: 1px solid var(--line);
+            background: #fafafa;
+            white-space: pre-wrap;
+            font-family: Consolas, "Courier New", monospace;
+            line-height: 1.45;
+            overflow: auto;
+        }
+
+        .preview {
+            max-height: 320px;
+        }
+
+        .content {
+            margin-top: 8px;
+            min-height: 120px;
+            max-height: 420px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 720px) {
+            .page {
+                width: min(100% - 16px, 1100px);
+            }
+
+            .columns {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h1>Firewall Guard Admin Page</h1>
+
+        <section class="section">
+            <div class="toolbar">
+                <input type="text" id="query" placeholder="Search for keywords or enter a URL like example.com">
+                <button type="button" onclick="search()">Search</button>
+                <button type="button" onclick="openDirectUrl()">Open URL</button>
+                <button type="button" onclick="refreshState()">Refresh Status</button>
+            </div>
+            <div class="meta" id="searchHint" style="margin-top:10px;">Localhost-only admin page on port 3800. Use Search for keywords, or Open URL for a direct page. Search results are indexed automatically.</div>
+            <div class="meta" id="statusSummary" style="margin-top:8px;">Indexed URLs: 0 | Blocked Patterns: 0 | Delayed Patterns: 0 | Last Rule Extract: 0</div>
+            <div class="meta" id="fileMeta" style="margin-top:8px;"></div>
+        </section>
+
+        <section class="section">
+            <h3>URL Policy</h3>
+            <div class="meta">Patterns can be domain:example.com, https://site.com/path, *tracking*, or regex:...</div>
+            <div class="policy-fields" style="margin-top:10px;">
+                <input type="text" id="policyPattern" placeholder="Pattern to block or delay">
+                <input type="number" id="delayMs" min="0" max="300000" value="2000" placeholder="Delay in milliseconds" style="width:190px;">
+                <button type="button" class="danger" onclick="addBlockRule()">Block Pattern</button>
+                <button type="button" class="warn" onclick="addDelayRule()">Delay Pattern</button>
+            </div>
+            <div class="columns" style="margin-top:12px;">
+                <div>
+                    <div class="column-title">Blocked</div>
+                    <div class="list" id="blockedList"></div>
+                </div>
+                <div>
+                    <div class="column-title">Delayed</div>
+                    <div class="list" id="delayList"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3>Indexed URL Preview</h3>
+            <div class="list" id="indexedPreview"></div>
+        </section>
+
+        <section class="section">
+            <h3>Rule Extraction</h3>
+            <label class="label" for="ruleSourcePath">Optional file path, for example search/sample.txt</label>
+            <input type="text" id="ruleSourcePath" placeholder="Optional file path, for example search/sample.txt">
+
+            <label class="label" for="ruleOutputFile" style="margin-top:10px;">Output file</label>
+            <input type="text" id="ruleOutputFile" value="extracted_rules.txt" placeholder="Output file name">
+
+            <label class="label" for="ruleSourceText" style="margin-top:10px;">Paste JS, JSON, or text containing firewall rules here</label>
+            <textarea id="ruleSourceText" placeholder="Paste JS, JSON, or text containing firewall rules here"></textarea>
+
+            <div class="row-actions" style="margin-top:10px;">
+                <button type="button" onclick="extractRules()">Extract Rules To Text File</button>
+            </div>
+            <div class="meta" id="extractStatus" style="margin-top:10px;">No rule extraction has been run yet.</div>
+            <div class="preview-wrap hidden" id="extractPreviewWrap">
+                <pre class="preview" id="extractPreview"></pre>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3>Search Results / Page Links</h3>
+            <div class="list" id="results"></div>
+        </section>
+
+        <section class="section">
+            <h3>Page Content</h3>
+            <div class="meta" id="contentMeta">Open a URL or click a search result to load page text.</div>
+            <div class="content" id="content"></div>
+        </section>
+    </div>
+
+    <script>
+        const queryInput = document.getElementById("query");
+        const policyPatternInput = document.getElementById("policyPattern");
+        const delayInput = document.getElementById("delayMs");
+
+        function looksLikeUrl(value) {
+            const trimmed = value.trim();
+            if (!trimmed || /\s/.test(trimmed)) return false;
+            return /^https?:\/\//i.test(trimmed) || trimmed.includes(".");
+        }
+
+        function hostnameFromUrl(url) {
+            try {
+                return new URL(url).hostname;
+            } catch (error) {
+                return "";
+            }
+        }
+
+        function patternFromUrl(url) {
+            try {
+                return `domain:${new URL(url).hostname}`;
+            } catch (error) {
+                return url;
+            }
+        }
+
+        async function api(url, options = {}) {
+            const response = await fetch(url, {
+                headers: { "Content-Type": "application/json" },
+                ...options
+            });
+            const data = await response.json();
+            if (!response.ok || data.success === false) {
+                throw new Error(data.error || "Request failed");
+            }
+            return data;
+        }
+
+        function createButton(label, onClick, tone) {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.textContent = label;
+            if (tone) button.classList.add(tone);
+            button.onclick = onClick;
+            return button;
+        }
+
+        function createLine(className, text) {
+            const line = document.createElement("div");
+            line.className = `row-line ${className}`;
+            line.textContent = text;
+            return line;
+        }
+
+        function setEmptyState(container, message) {
+            container.textContent = "";
+            const empty = document.createElement("div");
+            empty.className = "empty";
+            empty.textContent = message;
+            container.appendChild(empty);
+        }
+
+        function setPreview(text) {
+            const wrap = document.getElementById("extractPreviewWrap");
+            const preview = document.getElementById("extractPreview");
+            const content = String(text || "");
+            preview.textContent = content;
+            wrap.classList.toggle("hidden", !content.trim());
+        }
+
+        function renderPolicyLists(state) {
+            const blockedList = document.getElementById("blockedList");
+            const delayList = document.getElementById("delayList");
+
+            blockedList.textContent = "";
+            delayList.textContent = "";
+
+            if (!state.blocked_patterns.length) {
+                setEmptyState(blockedList, "No blocked patterns yet.");
+            } else {
+                state.blocked_patterns.forEach((pattern) => {
+                    const row = document.createElement("div");
+                    row.className = "row";
+                    row.appendChild(createLine("row-title", pattern));
+
+                    const actions = document.createElement("div");
+                    actions.className = "row-actions";
+                    actions.appendChild(createButton("Remove", () => removeBlockRule(pattern), "danger"));
+                    row.appendChild(actions);
+                    blockedList.appendChild(row);
+                });
+            }
+
+            if (!state.delayed_patterns.length) {
+                setEmptyState(delayList, "No delayed patterns yet.");
+            } else {
+                state.delayed_patterns.forEach((rule) => {
+                    const row = document.createElement("div");
+                    row.className = "row";
+                    row.appendChild(createLine("row-title", rule.pattern));
+                    row.appendChild(createLine("row-note", `${rule.delay_ms} ms`));
+
+                    const actions = document.createElement("div");
+                    actions.className = "row-actions";
+                    actions.appendChild(createButton("Remove", () => removeDelayRule(rule.pattern), "warn"));
+                    row.appendChild(actions);
+                    delayList.appendChild(row);
+                });
+            }
+        }
+
+        function renderUrlRows(containerId, items, emptyMessage) {
+            const container = document.getElementById(containerId);
+            container.textContent = "";
+
+            if (!items.length) {
+                setEmptyState(container, emptyMessage);
+                return;
+            }
+
+            items.forEach((item) => {
+                const row = document.createElement("div");
+                row.className = "row";
+
+                const titleText = item.text || item.url || "";
+                const urlText = item.url || "";
+                const hostText = item.hostname || hostnameFromUrl(urlText) || "unknown-host";
+
+                if (titleText) {
+                    row.appendChild(createLine("row-title", titleText));
+                }
+                if (urlText) {
+                    row.appendChild(createLine("row-url", urlText));
+                }
+                row.appendChild(createLine("row-host", hostText));
+
+                if (item.blocked) {
+                    row.appendChild(createLine("row-note", `Blocked by ${item.block_pattern}`));
+                }
+                if (item.delay_ms) {
+                    row.appendChild(createLine("row-note", `Delay ${item.delay_ms} ms`));
+                }
+
+                const actions = document.createElement("div");
+                actions.className = "row-actions";
+
+                const openButton = createButton("Open", () => loadPage(urlText));
+                openButton.disabled = Boolean(item.blocked);
+                actions.appendChild(openButton);
+                actions.appendChild(createButton("Block Host", () => quickBlock(urlText), "danger"));
+                actions.appendChild(createButton("Delay Host", () => quickDelay(urlText), "warn"));
+
+                row.appendChild(actions);
+                container.appendChild(row);
+            });
+        }
+
+        function renderState(state) {
+            const extractTotal = state.last_rule_extract ? state.last_rule_extract.total_extracted : 0;
+            const outputFile = state.last_rule_extract
+                ? state.last_rule_extract.output_file
+                : state.default_rule_export_file;
+
+            document.getElementById("statusSummary").textContent =
+                `Indexed URLs: ${state.indexed_url_count} | ` +
+                `Blocked Patterns: ${state.blocked_patterns.length} | ` +
+                `Delayed Patterns: ${state.delayed_patterns.length} | ` +
+                `Last Rule Extract: ${extractTotal}`;
+
+            document.getElementById("fileMeta").textContent =
+                `Indexed file: ${state.indexed_urls_file}\n` +
+                `Policy file: ${state.policy_file}\n` +
+                `Rules file: ${outputFile}\n` +
+                "Local backup/download is disabled.";
+
+            if (state.last_rule_extract) {
+                document.getElementById("extractStatus").textContent =
+                    `Last extract: ${state.last_rule_extract.output_file} from ` +
+                    `${state.last_rule_extract.source_label} with ` +
+                    `${state.last_rule_extract.total_extracted} entries.`;
+            } else {
+                document.getElementById("extractStatus").textContent = "No rule extraction has been run yet.";
+            }
+
+            renderPolicyLists(state);
+
+            const indexedItems = state.indexed_urls_preview.map((url) => ({
+                url: url,
+                text: url,
+                hostname: hostnameFromUrl(url),
+                blocked: false,
+                block_pattern: "",
+                delay_ms: 0
+            }));
+            renderUrlRows("indexedPreview", indexedItems, "No indexed URLs yet.");
+        }
+
+        async function refreshState() {
+            const state = await api("/api/state");
+            renderState(state);
+            return state;
+        }
+
+        async function search() {
+            const query = queryInput.value.trim();
+            if (!query) {
+                document.getElementById("searchHint").textContent = "Enter something to search.";
+                return;
+            }
+
+            if (looksLikeUrl(query)) {
+                await openDirectUrl();
+                return;
+            }
+
+            const data = await api(`/search?q=${encodeURIComponent(query)}`, { headers: {} });
+            document.getElementById("searchHint").textContent =
+                `Found ${data.count} result(s). Indexed count: ${data.indexed.count}.`;
+            document.getElementById("content").textContent = "";
+            document.getElementById("contentMeta").textContent =
+                "Search complete. Click a result to load page text.";
+            renderUrlRows("results", data.results, "No search results found.");
+            await refreshState();
+        }
+
+        async function openDirectUrl() {
+            const target = queryInput.value.trim();
+            if (!target) {
+                document.getElementById("searchHint").textContent = "Enter a website URL to open.";
+                return;
+            }
+
+            await loadPage(target);
+        }
+
+        async function loadPage(url) {
+            document.getElementById("content").textContent = "Loading...";
+
+            const response = await fetch(`/fetch?url=${encodeURIComponent(url)}`);
+            const data = await response.json();
+
+            document.getElementById("content").textContent = data.content || "";
+            document.getElementById("contentMeta").textContent =
+                data.blocked
+                    ? `Blocked by pattern: ${data.policy.block_pattern}`
+                    : `Loaded with ${data.fetch_mode || "local"} fetch${data.delay_applied_ms ? ` after ${data.delay_applied_ms} ms delay` : ""}. Indexed count: ${(data.indexed && data.indexed.count) || 0}.`;
+
+            queryInput.value = data.url || url;
+            renderUrlRows("results", data.links || [], "No page links found.");
+            await refreshState();
+        }
+
+        async function addBlockRule() {
+            const pattern = policyPatternInput.value.trim();
+            if (!pattern) return;
+
+            await api("/api/policy/block", {
+                method: "POST",
+                body: JSON.stringify({ pattern })
+            });
+            policyPatternInput.value = "";
+            await refreshState();
+        }
+
+        async function addDelayRule() {
+            const pattern = policyPatternInput.value.trim();
+            if (!pattern) return;
+
+            await api("/api/policy/delay", {
+                method: "POST",
+                body: JSON.stringify({ pattern, delay_ms: Number(delayInput.value || 0) })
+            });
+            policyPatternInput.value = "";
+            await refreshState();
+        }
+
+        async function removeBlockRule(pattern) {
+            await api("/api/policy/block/remove", {
+                method: "POST",
+                body: JSON.stringify({ pattern })
+            });
+            await refreshState();
+        }
+
+        async function removeDelayRule(pattern) {
+            await api("/api/policy/delay/remove", {
+                method: "POST",
+                body: JSON.stringify({ pattern })
+            });
+            await refreshState();
+        }
+
+        async function quickBlock(url) {
+            policyPatternInput.value = patternFromUrl(url);
+            await addBlockRule();
+        }
+
+        async function quickDelay(url) {
+            policyPatternInput.value = patternFromUrl(url);
+            await addDelayRule();
+        }
+
+        async function extractRules() {
+            const sourcePath = document.getElementById("ruleSourcePath").value.trim();
+            const sourceText = document.getElementById("ruleSourceText").value;
+            const outputFile = document.getElementById("ruleOutputFile").value.trim();
+
+            const data = await api("/api/extract-rules", {
+                method: "POST",
+                body: JSON.stringify({
+                    source_path: sourcePath,
+                    source_text: sourceText,
+                    output_file: outputFile
+                })
+            });
+
+            document.getElementById("extractStatus").textContent =
+                `Extracted ${data.total_extracted} entries into ${data.output_file}.`;
+            setPreview(data.preview || "");
+            await refreshState();
+        }
+
+        queryInput.addEventListener("keydown", async (event) => {
+            if (event.key !== "Enter") return;
+
+            if (looksLikeUrl(queryInput.value)) {
+                await openDirectUrl();
+                return;
+            }
+
+            await search();
+        });
+
+        refreshState();
+    </script>
+</body>
+</html>

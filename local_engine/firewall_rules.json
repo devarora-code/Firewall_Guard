@@ -1,0 +1,62 @@
+{
+  "blocked_domains": [
+    "malicious.com",
+    "evil.net",
+    "badware.io",
+    "malwarehost.xyz",
+    "exploitkit.ru",
+    "malwarepack.tk",
+    "virusden.ml",
+    "trojan-host.ga",
+    "phishing-site.io",
+    "fake-bank.com",
+    "amazon-verify.xyz",
+    "paypal-confirm.tk",
+    "apple-id-verify.ml",
+    "microsoft-verify.ga",
+    "google-signin.cf",
+    "botnet-c2.ru",
+    "c2-command.tk",
+    "zombie-controller.ml",
+    "ransomware-pay.xyz",
+    "decrypt-payment.tk",
+    "ransom-portal.ml",
+    "exploit-kit.ru",
+    "drive-by-download.tk",
+    "malvertising.ml",
+    "tech-support-scam.xyz",
+    "fake-support.tk",
+    "virus-warning.ml",
+    "adware-host.xyz",
+    "spyware-download.tk",
+    "malware.ml"
+  ],
+  "whitelisted_domains": [
+    "google.com",
+    "github.com",
+    "github.io",
+    "stackoverflow.com",
+    "youtube.com",
+    "wikipedia.org",
+    "reddit.com"
+  ],
+  "dangerous_extensions": [
+    ".exe",
+    ".msi",
+    ".dll",
+    ".bat",
+    ".cmd",
+    ".scr",
+    ".pif",
+    ".vbs",
+    ".js"
+  ],
+  "suspicious_patterns": [
+    "suspicious_tld",
+    "excessive_hyphens",
+    "long_domain"
+  ],
+  "version": 1774790433,
+  "declared_version": 1,
+  "last_updated": "2026-04-18T10:44:27.389934"
+}
