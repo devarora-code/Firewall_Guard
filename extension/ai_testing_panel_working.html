@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Testing Panel - Working Version</title>
+    <link rel="stylesheet" href="ai_testing_panel_working.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Testing Panel - Diagnostics</h1>
+        
+        <div class="debug-panel">
+            <div class="debug-section">
+                <h3>Storage Status</h3>
+                <div id="storageStatus" class="status-indicator info">Checking...</div>
+                <div id="commandCount" class="status-indicator">Commands: 0</div>
+            </div>
+            
+            <div class="debug-section">
+                <h3>Extension Status</h3>
+                <div id="extensionStatus" class="status-indicator info">Checking...</div>
+                <div id="backgroundStatus" class="status-indicator info">Checking...</div>
+            </div>
+            
+            <div class="debug-section">
+                <h3>Test Controls</h3>
+                <button id="testStorageBtn" class="test-button">Test Storage</button>
+                <button id="testExtensionBtn" class="test-button">Test Extension</button>
+                <button id="addTestCommandBtn" class="test-button">Add Test Command</button>
+                <button id="clearStorageBtn" class="test-button">Clear Storage</button>
+            </div>
+
+            <div class="debug-section">
+                <div class="section-header">
+                    <h3>Console Firewall Rules</h3>
+                    <div class="button-row">
+                        <button id="refreshRulesBtn" class="test-button">Refresh Rules</button>
+                        <button id="syncRulesBtn" class="test-button secondary">Sync Rules</button>
+                    </div>
+                </div>
+                <div id="rulesStatus" class="status-indicator info">Checking...</div>
+                <div id="rulesSummary" class="status-indicator">Rules: 0</div>
+                <div id="rulesList" class="rules-list">
+                    <div class="no-commands">No rules loaded yet...</div>
+                </div>
+            </div>
+            
+            <div class="debug-section">
+                <h3>Recent Commands and AI Responses</h3>
+                <div id="recentCommands" class="recent-commands">
+                    <div class="no-commands">No commands yet...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="ai_testing_panel_working.js"></script>
+</body>
+</html>

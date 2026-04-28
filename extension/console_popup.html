@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Firewall Console Monitor</title>
+    <link rel="stylesheet" href="console_popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>🛡️ Console Monitor</h2>
+            <div class="header-buttons">
+                <button id="refreshCommandsBtn" class="btn btn-primary">🔄 Refresh</button>
+                <button id="clearCommandsBtn" class="btn btn-danger">🗑️ Clear</button>
+            </div>
+        </div>
+        
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-label">Total</div>
+                <div class="stat-value" id="totalCommands">0</div>
+            </div>
+            <div class="stat-item risk-low">
+                <div class="stat-label">Low</div>
+                <div class="stat-value" id="lowRiskCommands">0</div>
+            </div>
+            <div class="stat-item risk-medium">
+                <div class="stat-label">Medium</div>
+                <div class="stat-value" id="mediumRiskCommands">0</div>
+            </div>
+            <div class="stat-item risk-high">
+                <div class="stat-label">High</div>
+                <div class="stat-value" id="highRiskCommands">0</div>
+            </div>
+            <div class="stat-item risk-unknown">
+                <div class="stat-label">Unknown</div>
+                <div class="stat-value" id="unknownRiskCommands">0</div>
+            </div>
+        </div>
+        
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="high-risk">🔴 High Risk</button>
+            <button class="filter-btn" data-filter="medium-risk">🟡 Medium Risk</button>
+            <button class="filter-btn" data-filter="low-risk">🟢 Low Risk</button>
+            <button class="filter-btn" data-filter="eval">Eval</button>
+            <button class="filter-btn" data-filter="console">Console</button>
+            <button class="filter-btn" data-filter="script">Script</button>
+        </div>
+        
+        <div class="commands-container">
+            <div id="consoleCommandsList" class="commands-list">
+                <div class="loading">Loading console commands...</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-info">
+                <span>🤖 Powered by OpenAI GPT-3.5</span>
+                <span class="separator">|</span>
+                <span>🔍 Real-time Analysis</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="console_popup.js"></script>
+</body>
+</html>
