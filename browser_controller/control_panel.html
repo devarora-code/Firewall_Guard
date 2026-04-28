@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Automation Controller</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header { text-align: center; margin-bottom: 30px; }
+        .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+        .result { display: none; }
+        .section { margin: 20px 0; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin: 5px; }
+        button:hover { background: #0056b3; }
+        button.danger { background: #dc3545; }
+        button.danger:hover { background: #c82333; }
+        input, textarea, select { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        .session-list { max-height: 300px; overflow-y: auto; border: 1px solid #ddd; border-radius: 4px; }
+        .session-item { padding: 10px; border-bottom: 1px solid #eee; }
+        .session-item:last-child { border-bottom: none; }
+        .status-running { color: #28a745; }
+        .status-stopped { color: #dc3545; }
+        .log-entry { font-family: monospace; font-size: 12px; padding: 5px; border-bottom: 1px solid #eee; }
+        .log-entry:last-child { border-bottom: none; }
+        .download-item { padding: 10px; margin: 5px 0; border: 1px solid #ddd; border-radius: 4px; }
+        .multi-file { background: #fff3cd; border-color: #ffeaa7; }
+        .tabs { display: flex; border-bottom: 1px solid #ddd; margin-bottom: 20px; }
+        .tab { padding: 10px 20px; cursor: pointer; border: none; background: none; }
+        .tab.active { border-bottom: 2px solid #007bff; color: #007bff; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .result { margin: 15px 0; padding: 15px; border-radius: 4px; font-family: monospace; white-space: pre-wrap; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Browser Automation Controller</h1>
+            <p>Control automated browser testing with Chrome extension</p>
+        </div>
+
+        <div class="section">
+            <h3>Extension Connection</h3>
+            <div class="controls">
+                <div>
+                    <label>Extension ID:</label>
+                    <input type="text" id="extensionId" placeholder="Chrome Extension ID">
+                    <button onclick="connectExtension()">Connect</button>
+                </div>
+                <div>
+                    <label>Status:</label>
+                    <div id="connectionStatus">Not connected</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Automated Browser Control</h3>
+            <div class="controls">
+                <div>
+                    <label>Launch New Automated Browser:</label>
+                    <button onclick="launchAutomatedBrowser()">Launch Browser</button>
+                    <button onclick="getActiveSessions()">Get Sessions</button>
+                </div>
+                <div>
+                    <label>Current Session:</label>
+                    <div id="currentSession">No active session</div>
+                </div>
+            </div>
+            <div class="controls">
+                <div>
+                    <label>Browser Options:</label>
+                    <input type="checkbox" id="headlessMode" title="Headless Mode" aria-label="Headless Mode"> Headless Mode<br>
+                    <input type="checkbox" id="incognitoMode" title="Incognito Mode" aria-label="Incognito Mode"> Incognito Mode<br>
+                    <input type="checkbox" id="blockAds" title="Block Ads" aria-label="Block Ads" checked> Block Ads<br>
+                    <input type="checkbox" id="interceptClicks" title="Intercept Clicks" aria-label="Intercept Clicks"> Intercept Clicks<br>
+                    <input type="checkbox" id="interceptForms" title="Intercept Forms" aria-label="Intercept Forms"> Intercept Forms
+                </div>
+                <div>
+                    <label>Start URL:</label>
+                    <input type="text" id="startUrl" placeholder="https://example.com">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Session Control</h3>
+            <div class="controls">
+                <div>
+                    <label>Start URL (optional):</label>
+                    <input type="text" id="sessionStartUrl" placeholder="https://example.com">
+                    <button onclick="startSession()">Start Session</button>
+                    <button onclick="stopSession()" class="danger">Stop Session</button>
+                </div>
+                <div>
+                    <label>Current Session:</label>
+                    <div id="currentSession">No active session</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Navigation Control</h3>
+            <div class="controls">
+                <div>
+                    <label>URL to Navigate:</label>
+                    <input type="text" id="navigateUrl" placeholder="https://example.com">
+                    <button onclick="navigateToUrl()">Navigate</button>
+                </div>
+                <div>
+                    <label>Quick Tests:</label>
+                    <button onclick="runQuickTest('security')">Security Test</button>
+                    <button onclick="runQuickTest('download')">Download Test</button>
+                    <button onclick="runQuickTest('adblock')">Ad Block Test</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('logs')">Page Logs</button>
+            <button class="tab" onclick="showTab('downloads')">Downloads</button>
+            <button class="tab" onclick="showTab('sessions')">Sessions</button>
+            <button class="tab" onclick="showTab('results')">Test Results</button>
+        </div>
+
+        <div id="logs" class="tab-content active">
+            <div class="section">
+                <h3>Page Activity Logs</h3>
+                <button onclick="refreshLogs()">Refresh Logs</button>
+                <button onclick="clearLogs()">Clear Logs</button>
+                <div id="logsContainer" class="session-list"></div>
+            </div>
+        </div>
+
+        <div id="downloads" class="tab-content">
+            <div class="section">
+                <h3>Download Monitor</h3>
+                <button onclick="refreshDownloads()">Refresh Downloads</button>
+                <div id="downloadsContainer"></div>
+            </div>
+        </div>
+
+        <div id="sessions" class="tab-content">
+            <div class="section">
+                <h3>Active Sessions</h3>
+                <button onclick="refreshSessions()">Refresh Sessions</button>
+                <div id="sessionsContainer" class="session-list"></div>
+            </div>
+        </div>
+
+        <div id="results" class="tab-content">
+            <div class="section">
+                <h3>Test Results</h3>
+                <div id="testResults" class="result"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSessionId = null;
+        let extensionConnected = false;
+        let extensionId = null;
+
+        // Extension communication (simulated for demo)
+        async function sendExtensionMessage(message) {
+            // For demo purposes, simulate responses without requiring real extension
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    switch(message.action) {
+                        case 'launchAutomatedBrowser':
+                            resolve({ success: true, sessionId: 'auto_' + Date.now(), windowId: 'window_' + Date.now(), tabId: 'tab_' + Date.now(), type: 'automated_browser', status: 'active' });
+                            break;
+                        case 'getActiveSessions':
+                            resolve({ success: true, sessions: [
+                                { sessionId: 'demo_session_1', type: 'automated_browser', status: 'active', startTime: Date.now(), windowId: 'window_1', tabId: 'tab_1' },
+                                { sessionId: 'demo_session_2', type: 'automation', status: 'active', startTime: Date.now() - 60000, windowId: 'window_2', tabId: 'tab_2' }
+                            ]});
+                            break;
+                        case 'startAutomation':
+                            resolve({ success: true, sessionId: 'session_' + Date.now() });
+                            break;
+                        case 'stopAutomation':
+                            resolve({ success: true });
+                            break;
+                        case 'navigateTo':
+                            resolve({ success: true });
+                            break;
+                        case 'getPageLogs':
+                            resolve({ success: true, logs: [
+                                { type: 'navigation', url: message.url || 'https://example.com', timestamp: Date.now() },
+                                { type: 'network_request', url: 'https://example.com/style.css', blocked: false, timestamp: Date.now() },
+                                { type: 'network_request', url: 'https://example.com/ad.js', blocked: true, timestamp: Date.now() }
+                            ]});
+                            break;
+                        case 'getDownloadInfo':
+                            resolve({ success: true, downloads: [
+                                { filename: 'test.zip', fileSize: 1024, state: 'complete', multiFileDetected: true, url: 'https://example.com/test.zip' },
+                                { filename: 'image.jpg', fileSize: 256, state: 'complete', multiFileDetected: false, url: 'https://example.com/image.jpg' }
+                            ]});
+                            break;
+                        default:
+                            resolve({ success: false, error: 'Unknown action' });
+                    }
+                }, 500);
+            });
+        }
+
+        function connectExtension() {
+            extensionId = document.getElementById('extensionId').value;
+            if (!extensionId) {
+                // Auto-connect in demo mode
+                extensionId = 'demo_extension_id';
+                extensionConnected = true;
+                document.getElementById('extensionId').value = extensionId;
+                document.getElementById('connectionStatus').innerHTML = 
+                    '<span class="status-running">Connected (Demo Mode)</span>';
+                showResult('Connected to extension in demo mode - All features enabled', true);
+                return;
+            }
+            
+            // Simulate connection
+            extensionConnected = true;
+            document.getElementById('connectionStatus').innerHTML = 
+                '<span class="status-running">Connected to ' + extensionId + '</span>';
+            showResult('Connected to extension successfully', true);
+        }
+
+        async function launchAutomatedBrowser() {
+            const config = {
+                startUrl: document.getElementById('startUrl').value || 'about:blank',
+                headless: document.getElementById('headlessMode').checked,
+                incognito: document.getElementById('incognitoMode').checked,
+                blockAds: document.getElementById('blockAds').checked,
+                interceptClicks: document.getElementById('interceptClicks').checked,
+                interceptForms: document.getElementById('interceptForms').checked,
+                recordScreenshots: true,
+                viewport: { width: 1920, height: 1080 }
+            };
+            
+            try {
+                const response = await sendExtensionMessage({
+                    action: 'launchAutomatedBrowser',
+                    config: config
+                });
+                
+                if (response.success) {
+                    currentSessionId = response.sessionId;
+                    document.getElementById('currentSession').innerHTML = 
+                        '<span class="status-running">Automated Browser: ' + response.sessionId + '</span>';
+                    showResult('Automated browser launched: ' + response.sessionId, true);
+                } else {
+                    showResult('Failed to launch automated browser: ' + response.error, false);
+                }
+            } catch (error) {
+                showResult('Error launching automated browser: ' + error.message, false);
+            }
+        }
+        
+        async function getActiveSessions() {
+            try {
+                const response = await sendExtensionMessage({
+                    action: 'getActiveSessions'
+                });
+                
+                if (response.success) {
+                    displaySessions(response.sessions);
+                } else {
+                    showResult('Failed to get sessions: ' + response.error, false);
+                }
+            } catch (error) {
+                showResult('Error getting sessions: ' + error.message, false);
+            }
+        }
+        
+        function displaySessions(sessions) {
+            const container = document.getElementById('sessionsContainer');
+            container.innerHTML = '';
+            
+            sessions.forEach(session => {
+                const item = document.createElement('div');
+                item.className = 'session-item';
+                item.innerHTML = `
+                    <strong>${session.sessionId}</strong>
+                    <br>Type: ${session.type}
+                    <br>Status: <span class="status-${session.status}">${session.status}</span>
+                    <br>Started: ${new Date(session.startTime).toLocaleString()}
+                    ${session.windowId ? '<br>Window ID: ' + session.windowId : ''}
+                    ${session.tabId ? '<br>Tab ID: ' + session.tabId : ''}
+                    <br>
+                    <button onclick="selectSession('${session.sessionId}')">Select</button>
+                    <button onclick="stopSession('${session.sessionId}')" class="danger">Stop</button>
+                `;
+                container.appendChild(item);
+            });
+        }
+        
+        function selectSession(sessionId) {
+            currentSessionId = sessionId;
+            document.getElementById('currentSession').innerHTML = 
+                '<span class="status-running">Selected: ' + sessionId + '</span>';
+            document.getElementById('sessionStartUrl').value = '';
+        }
+
+        async function startSession() {
+            if (!extensionConnected) {
+                showResult('Please connect to extension first', false);
+                return;
+            }
+
+            const startUrl = document.getElementById('sessionStartUrl').value;
+            
+            try {
+                const response = await sendExtensionMessage({
+                    action: 'startAutomation',
+                    config: { startUrl: startUrl }
+                });
+                
+                if (response.success) {
+                    currentSessionId = response.sessionId;
+                    document.getElementById('currentSession').innerHTML = 
+                        '<span class="status-running">Session: ' + response.sessionId + '</span>';
+                    showResult('Session started: ' + response.sessionId, true);
+                } else {
+                    showResult('Failed to start session: ' + response.error, false);
+                }
+            } catch (error) {
+                showResult('Error starting session: ' + error.message, false);
+            }
+        }
+
+        async function stopSession(sessionId) {
+            sessionId = sessionId || currentSessionId;
+            if (!sessionId) {
+                showResult('No session to stop', false);
+                return;
+            }
+
+            try {
+                const response = await sendExtensionMessage({
+                    action: 'stopAutomation',
+                    sessionId: sessionId
+                });
+                
+                if (response.success) {
+                    document.getElementById('currentSession').innerHTML = 'No active session';
+                    currentSessionId = null;
+                    showResult('Session stopped: ' + sessionId, true);
+                    getActiveSessions(); // Refresh sessions list
+                } else {
+                    showResult('Failed to stop session: ' + response.error, false);
+                }
+            } catch (error) {
+                showResult('Error stopping session: ' + error.message, false);
+            }
+        }
+
+        async function navigateToUrl() {
+            if (!currentSessionId) {
+                showResult('Please start a session first', false);
+                return;
+            }
+
+            const url = document.getElementById('navigateUrl').value;
+            if (!url) {
+                showResult('Please enter a URL', false);
+                return;
+            }
+
+            try {
+                const response = await sendExtensionMessage({
+                    action: 'navigateTo',
+                    sessionId: currentSessionId,
+                    url: url
+                });
+                
+                if (response.success) {
+                    showResult('Navigated to: ' + url, true);
+                    refreshLogs(); // Refresh logs after navigation
+                } else {
+                    showResult('Navigation failed: ' + response.error, false);
+                }
+            } catch (error) {
+                showResult('Error navigating: ' + error.message, false);
+            }
+        }
+
+        async function runQuickTest(testType) {
+            if (!currentSessionId) {
+                showResult('Please start a session first', false);
+                return;
+            }
+
+            const testUrls = {
+                'security': ['https://httpbin.org/html', 'https://example.com'],
+                'download': ['https://httpbin.org/bytes/1024'],
+                'adblock': ['https://news.ycombinator.com']
+            };
+
+            const urls = testUrls[testType] || ['https://example.com'];
+            const results = [];
+
+            try {
+                for (const url of urls) {
+                    showResult('Running ' + testType + ' test on: ' + url, true);
+                    
+                    await navigateToUrl();
+                    
+                    // Wait for test to complete
+                    await new Promise(resolve => setTimeout(resolve, 3000));
+                    
+                    // Get test data
+                    const testLogs = await getTestLogs();
+                    const testDownloads = await getTestDownloads();
+                    
+                    results.push({
+                        url: url,
+                        logs: testLogs,
+                        downloads: testDownloads,
+                        testType: testType
+                    });
+                }
+
+                showResult(JSON.stringify(results, null, 2), true);
+            } catch (error) {
+                showResult('Test failed: ' + error.message, false);
+            }
+        }
+
+        async function refreshLogs() {
+            if (!currentSessionId) return;
+
+            try {
+                const response = await sendExtensionMessage({
+                    action: 'getPageLogs',
+                    sessionId: currentSessionId
+                });
+                
+                if (response.success) {
+                    displayLogs(response.logs);
+                }
+            } catch (error) {
+                console.error('Failed to refresh logs:', error);
+            }
+        }
+
+        async function refreshDownloads() {
+            if (!currentSessionId) return;
+
+            try {
+                const response = await sendExtensionMessage({
+                    action: 'getDownloadInfo',
+                    sessionId: currentSessionId
+                });
+                
+                if (response.success) {
+                    displayDownloads(response.downloads);
+                }
+            } catch (error) {
+                console.error('Failed to refresh downloads:', error);
+            }
+        }
+
+        function displayLogs(logs) {
+            const container = document.getElementById('logsContainer');
+            container.innerHTML = '';
+            
+            if (!logs || logs.length === 0) {
+                container.innerHTML = '<div class="log-entry">No logs available</div>';
+                return;
+            }
+            
+            logs.forEach(log => {
+                const entry = document.createElement('div');
+                entry.className = 'log-entry';
+                entry.innerHTML = 
+                    '<strong>' + log.type + '</strong> - ' + new Date(log.timestamp).toLocaleTimeString() +
+                    (log.url ? '<br>URL: ' + log.url : '') +
+                    (log.message ? '<br>' + log.message : '') +
+                    (log.blocked ? '<br><span style="color: red;">BLOCKED</span>' : '');
+                container.appendChild(entry);
+            });
+        }
+
+        function displayDownloads(downloads) {
+            const container = document.getElementById('downloadsContainer');
+            container.innerHTML = '';
+            
+            if (!downloads || downloads.length === 0) {
+                container.innerHTML = '<div class="download-item">No downloads available</div>';
+                return;
+            }
+            
+            downloads.forEach(download => {
+                const item = document.createElement('div');
+                item.className = 'download-item' + (download.multiFileDetected ? ' multi-file' : '');
+                item.innerHTML = 
+                    '<strong>' + download.filename + '</strong>' +
+                    '<br>Size: ' + (download.fileSize || 'Unknown') + ' bytes' +
+                    '<br>Status: ' + download.state +
+                    (download.multiFileDetected ? '<br><span style="color: orange;">⚠️ Multi-file download detected</span>' : '') +
+                    (download.warning ? '<br><span style="color: red;">' + download.warning + '</span>' : '');
+                container.appendChild(item);
+            });
+        }
+
+        function refreshSessions() {
+            const container = document.getElementById('sessionsContainer');
+            container.innerHTML = '';
+
+            sessions.forEach(session => {
+                const item = document.createElement('div');
+                item.className = 'session-item';
+                item.innerHTML = `
+                    <strong>${session.id}</strong>
+                    <br>Status: <span class="status-${session.status}">${session.status}</span>
+                    <br>Started: ${session.startTime.toLocaleString()}
+                    ${session.url ? '<br>URL: ' + session.url : ''}
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function addLog(log) {
+            logs.push(log);
+            displayLogs();
+        }
+
+        function clearLogs() {
+            logs = [];
+            displayLogs();
+        }
+
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            const tabButtons = document.querySelectorAll('.tab');
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function showResult(message, isSuccess) {
+            const resultDiv = document.getElementById('testResults');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result ' + (isSuccess ? 'success' : 'error');
+            resultDiv.textContent = message;
+        }
+
+        // Simulated functions for demo
+        async function getTestLogs() {
+            return [
+                { type: 'network_request', url: 'https://example.com/ad.js', blocked: true, timestamp: Date.now() },
+                { type: 'navigation', url: 'https://example.com', timestamp: Date.now() }
+            ];
+        }
+
+        async function getTestDownloads() {
+            return [
+                { filename: 'test.zip', fileSize: 1024, state: 'complete', multiFileDetected: true }
+            ];
+        }
+
+        // Auto-refresh and auto-connect
+        setInterval(() => {
+            if (currentSessionId) {
+                refreshLogs();
+                refreshDownloads();
+            }
+        }, 5000);
+
+        // Auto-connect on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                connectExtension();
+                getActiveSessions();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
